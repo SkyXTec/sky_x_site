@@ -7,8 +7,24 @@ header {
   justify-content: space-between;
   align-items: center;
 
-  .logo{
+  .logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+  }
+
+  .logo img {
+    height: 120px;
     width: 181px;
+    object-fit: contain;
+    background: transparent;
+  }
+
+  .logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 8px rgba(72, 186, 243, 0.4));
   }
 
   & nav{
