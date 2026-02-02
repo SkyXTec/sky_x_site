@@ -14,7 +14,6 @@
 body {
   font-family: "Inter", sans-serif;
   background-color: rgb(255, 255, 255);
-  /*background-image: url('../assets/images/background-gradiant.png');*/
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -33,43 +32,108 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (max-width: 1200px) {
+  body {
+    padding: 60px 60px;
+  }
+}
+
+@media (max-width: 992px) {
+  body {
+    padding: 40px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 30px 20px;
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 20px 15px;
+  }
+}
+
 .curved-edge {
   --c: 160px; /* control the curvature (works with percentage) */
-  height: 800px;
+  height: 1000px;
   width: 120vw;
   aspect-ratio: 1.5;
   /* you can also update the 60%  */
   mask: radial-gradient(
-      50% var(--c) at 54% var(--c),
+      50% var(--c) at 55% var(--c),
       #ffffff calc(100% - 40px),
       #ffffff
     )
     0 calc(-1 * var(--c));
-  background: 
-    radial-gradient( at 30% 40%, rgba(142, 217, 255, 0.3) 0%, rgba(212, 236, 255, 0.15) 30%, transparent 70%),
-    radial-gradient( at 70% 60%, rgba(180, 225, 255, 0.8) 0%, rgba(212, 236, 255, 0.1) 40%, transparent 75%),
-    radial-gradient( at 50% 50%, rgba(212, 236, 255, 0.28) 0%, transparent 65%);
+  background:
+    radial-gradient(
+      at 90% -80%,
+      rgb(255, 255, 255) 30%,
+      rgba(255, 255, 255, 0.6) 40%,
+      transparent 75%
+    ),
+    radial-gradient(
+      at 80% 170%,
+      rgb(255, 255, 255) 10%,
+      rgba(255, 255, 255, 0.6) 40%,
+      transparent 75%
+    ),
+    radial-gradient(
+      1200px 400px at 20% 0%,
+      rgb(255, 255, 255) 10%,
+      rgba(255, 255, 255, 0.6) 40%,
+      transparent 75%
+    ),
+    radial-gradient(
+      700px 50px at 50% 40%,
+      rgb(115, 190, 255) 10%,
+      rgba(87, 199, 255, 0.3) 10%,
+      transparent 75%
+    ),
+    radial-gradient(
+      700px 100px at 50% 40%,
+      rgb(76, 166, 244) 10%,
+      rgba(251, 253, 255, 0.6) 25%,
+      transparent 25%
+    ),
+    radial-gradient(
+      at 30% 40%,
+      rgba(142, 217, 255, 0.3) 0%,
+      rgba(212, 236, 255, 0.15) 30%,
+      transparent 70%
+    ),
+    radial-gradient(
+      at 70% 60%,
+      rgba(180, 225, 255, 0.8) 0%,
+      rgba(212, 236, 255, 0.1) 40%,
+      transparent 75%
+    ),
+    radial-gradient(at 50% 50%, rgba(212, 236, 255, 0.28) 0%, transparent 65%),
+    repeating-conic-gradient(
+      from 0.25turn at 50% 40%,
+      #5dabf4,
+      10deg,
+      #ffffff,
+      80deg,
+      #ffffff,
+      170deg,
+      #79b3fa,
+      190deg,
+      #ffffff,
+      220deg,
+      #ffffff,
+      350deg,
+      #8bbbf6
+    );
+  background-size: cover;
   position: absolute;
+  filter: blur(10px);
   z-index: -1;
-  filter: blur(50px);
-  animation: curvedGradientFlow 20s ease-in-out infinite;
-}
 
-@keyframes curvedGradientFlow {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  25% {
-    opacity: 0.85;
-    transform: scale(1.05);
-  }
-  50% {
-    opacity: 0.9;
-    transform: scale(0.98);
-  }
-  75% {
-    opacity: 0.95;
-    transform: scale(1.13);
-  }
 }

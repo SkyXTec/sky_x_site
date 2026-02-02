@@ -131,3 +131,124 @@ header {
 
     }
 }
+
+@media (max-width: 1200px) {
+  header {
+    width: 90vw;
+  }
+  
+  header .logo img {
+    height: 100px;
+    width: 150px;
+  }
+  
+  header nav {
+    gap: 20px;
+    padding: 0 0 0 1.2rem;
+  }
+  
+  header nav .nav-list {
+    gap: 20px;
+  }
+  
+  header nav .nav-list li {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 992px) {
+  header {
+    width: 95vw;
+  }
+  
+  header .logo img {
+    height: 80px;
+    width: 120px;
+  }
+  
+  header nav {
+    gap: 15px;
+    padding: 0 0 0 1rem;
+    height: 2.75rem;
+  }
+  
+  header nav .nav-list {
+    gap: 15px;
+  }
+  
+  header nav .nav-list li {
+    font-size: 0.9rem;
+  }
+  
+  header nav .btn-login {
+    padding: 0.4rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    width: 100%;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: auto;
+  }
+  
+  header .logo img {
+    height: 70px;
+    width: 105px;
+  }
+  
+  header nav {
+    width: 100%;
+    justify-content: center;
+    padding: 0 1rem;
+  }
+  
+  header nav .nav-list {
+    display: none;
+  }
+  
+  header nav .btn-login {
+    margin: 0 auto;
+  }
+  
+  header .social-icons {
+    width: auto;
+    gap: 1.2rem;
+  }
+  
+  header .social-icons img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    gap: 1rem;
+  }
+  
+  header .logo img {
+    height: 60px;
+    width: 90px;
+  }
+  
+  header nav {
+    height: 2.5rem;
+  }
+  
+  header nav .btn-login {
+    padding: 0.35rem 1.2rem;
+    font-size: 0.85rem;
+  }
+  
+  header .social-icons {
+    gap: 1rem;
+  }
+  
+  header .social-icons img {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+}
