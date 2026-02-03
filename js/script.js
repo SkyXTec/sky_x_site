@@ -42,4 +42,48 @@ const observer = new IntersectionObserver((entries) => {
 document.addEventListener('DOMContentLoaded', () => {
     const animatedElements = document.querySelectorAll('.hero-content, .footer-hero-right');
     animatedElements.forEach(el => observer.observe(el));
+
+    // Navegação do Carrossel de Serviços
+    const carouselTrack = document.querySelector('.carousel-track');
+    const prevBtn = document.querySelector('.carousel-nav-prev');
+    const nextBtn = document.querySelector('.carousel-nav-next');
+    
+    if (carouselTrack && prevBtn && nextBtn) {
+        let currentPosition = 0;
+        const cardWidth = 320; // Largura do card
+        const gap = 32; // Gap entre cards (2rem = 32px)
+        const scrollAmount = cardWidth + gap;
+        
+        // Função para atualizar a posição
+        const updatePosition = () => {
+            carouselTrack.style.transform = `translateX(-${currentPosition}px)`;
+        };
+        
+        // Botão próximo
+        nextBtn.addEventListener('click', () => {
+            const maxScroll = carouselTrack.scrollWidth - carouselTrack.parentElement.offsetWidth;
+            if (currentPosition < maxScroll - scrollAmount) {
+                currentPosition += scrollAmount;
+            } else {
+                currentPosition = 0; // Volta ao início
+            }
+            updatePosition();
+        });
+        
+        // Botão anterior
+        prevBtn.addEventListener('click', () => {
+            if (currentPosition > 0) {
+                currentPosition -= scrollAmount;
+            } else {
+                // Vai para o final
+                currentPosition = carouselTrack.scrollWidth - carouselTrack.parentElement.offsetWidth;
+            }
+            updatePosition();
+        });
+        
+        // Auto-play opcional (comentado por padrão)
+        // setInterval(() => {
+        //     nextBtn.click();
+        // }, 5000);
+    }
 });
