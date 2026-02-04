@@ -34,4 +34,39 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   });
+
+  // Modal de Notícia
+  const modal = document.getElementById('noticiaModal');
+  const openModalBtn = document.getElementById('openModal');
+  const closeModalBtn = document.querySelector('.modal-close');
+  
+  if (openModalBtn && modal && closeModalBtn) {
+    // Abrir modal
+    openModalBtn.addEventListener('click', () => {
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    });
+    
+    // Fechar modal ao clicar no X
+    closeModalBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+    
+    // Fechar modal ao clicar fora do conteúdo
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+    
+    // Fechar modal com tecla ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.style.display === 'block') {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+  }
 });
