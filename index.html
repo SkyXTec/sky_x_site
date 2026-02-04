@@ -13,15 +13,8 @@
       rel="stylesheet"
     />
 
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="CSS/base.css" />
-    <link rel="stylesheet" href="CSS/header.css" />
-    <link rel="stylesheet" href="CSS/hero.css" />
-    <link rel="stylesheet" href="CSS/footer-hero.css" />
-    <link rel="stylesheet" href="CSS/sobre.css" />
-    <link rel="stylesheet" href="CSS/servicos.css" />
-    <link rel="stylesheet" href="CSS/portfolio.css" />
-    <link rel="stylesheet" href="CSS/blog.css" />
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
     <div class="curved-edge"></div>
@@ -132,7 +125,6 @@
         <div class="cabecalho-servicos">
           <div class="title-servicos">
             <h1>Nossos serviços</h1>
-            <p class="subtitle-servicos">text</p>
           </div>
           <div class="descricao-servicos">
             <p>
@@ -145,57 +137,127 @@
 
         <div class="carousel-container">
           <div class="carousel-track">
-            <div class="service-card">
+            <div class="service-card dev-card" style="background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 100%), url('assets/images/desenvolvimento.jpg') center/cover no-repeat;">
+              <div class="badge-container">
+                <span class="card-badge">Tecnologia</span>
+                <span class="card-badge">Desenvolvimento</span>
+              </div>
               <div class="card-content">
                 <h3>Desenvolvimento Web</h3>
-                <p>Sites e aplicações modernas com tecnologias de ponta</p>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="card-content">
-                <h3>Realidade Virtual</h3>
                 <p>
-                  Experiências imersivas e ambientes virtuais personalizados
+                  Desenvolvemos sites e aplicações modernas com tecnologias de
+                  ponta, focadas em performance, segurança e escalabilidade.
+                  Nossas soluções são projetadas para atender às necessidades do
+                  negócio, oferecendo experiências digitais eficientes,
+                  intuitivas e preparadas para crescimento.
                 </p>
               </div>
             </div>
-            <div class="service-card">
+            <div class="service-card vr-card" style="background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 100%), url('assets/images/imersão.jpg') center/cover no-repeat;">
+              <div class="badge-container">
+                <span class="card-badge">Imersão</span>
+                <span class="card-badge">VR</span>
+              </div>
+              <div class="card-content">
+                <h3>Realidade Virtual</h3>
+                <p>
+                  Desenvolvemos experiências imersivas e ambientes virtuais
+                  personalizados, projetados para treinamentos, apresentações e
+                  vivências interativas. Utilizamos tecnologia de realidade
+                  virtual para criar soluções envolventes, realistas e adaptadas
+                  às necessidades de cada projeto.
+                </p>
+              </div>
+            </div>
+            <div class="service-card mobile-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.2) 100%), url('assets/images/mobile.jpg') center/cover no-repeat;">
+              <div class="badge-container">
+                <span class="card-badge">Mobile</span>
+              </div>
               <div class="card-content">
                 <h3>Aplicativos Mobile</h3>
-                <p>Desenvolvimento iOS e Android para suas ideias</p>
+                <p>
+                  Desenvolvemos aplicativos mobile que transformam ideias em
+                  resultados. Soluções personalizadas, design inteligente e
+                  tecnologia preparada para o futuro.
+                </p>
               </div>
             </div>
-            <div class="service-card">
+            <div class="service-card capsula-card" style="background: linear-gradient(135deg, rgba(163, 163, 163, 0.3) 0%, rgba(155, 155, 155, 0.2) 100%), url('assets/images/capsula-vr.jpg') center/cover no-repeat;">
+              <div class="badge-container">
+                <span class="card-badge">Imersão</span>
+                <span class="card-badge">Educação</span>
+                <span class="card-badge">Cortex Vr</span>
+              </div>
               <div class="card-content">
-                <h3>Consultoria Tech</h3>
-                <p>Planejamento e estratégia para projetos digitais</p>
+                <h3>Capsula imersiva</h3>
+                <p>
+                  Desenvolvemos ambientes e soluções imersivas voltadas para
+                  experiências profissionais e educacionais, unindo tecnologia,
+                  inovação e usabilidade. Nossas soluções são projetadas para
+                  capacitação, treinamentos, demonstrações técnicas e aplicações
+                  educacionais, proporcionando aprendizado prático, envolvente e
+                  de alto impacto.
+                </p>
               </div>
             </div>
-            <div class="service-card">
+            <div class="service-card ux-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.2) 100%), url('assets/images/ux.jpg') center/cover no-repeat;">
+              <div class="badge-container">
+                <span class="card-badge">Design</span>
+              </div>
               <div class="card-content">
                 <h3>UI/UX Design</h3>
-                <p>Interfaces intuitivas e experiências memoráveis</p>
+                <p>
+                  Projetamos interfaces intuitivas e experiências memoráveis,
+                  focadas em usabilidade, acessibilidade e clareza. Cada solução
+                  é pensada para facilitar a interação do usuário, fortalecer a
+                  identidade do produto e gerar resultados reais.
+                </p>
               </div>
             </div>
             <!-- Cards duplicados para loop infinito -->
-            <div class="service-card">
+            <div class="service-card dev-card" style="background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 100%), url('assets/images/desenvolvimento.jpg') center/cover no-repeat;">
+              <div class="badge-container">
+                <span class="card-badge">Tecnologia</span>
+                <span class="card-badge">Desenvolvimento</span>
+              </div>
               <div class="card-content">
                 <h3>Desenvolvimento Web</h3>
-                <p>Sites e aplicações modernas com tecnologias de ponta</p>
-              </div>
-            </div>
-            <div class="service-card">
-              <div class="card-content">
-                <h3>Realidade Virtual</h3>
                 <p>
-                  Experiências imersivas e ambientes virtuais personalizados
+                  Desenvolvemos sites e aplicações modernas com tecnologias de
+                  ponta, focadas em performance, segurança e escalabilidade.
+                  Nossas soluções são projetadas para atender às necessidades do
+                  negócio, oferecendo experiências digitais eficientes,
+                  intuitivas e preparadas para crescimento.
                 </p>
               </div>
             </div>
-            <div class="service-card">
+            <div class="service-card vr-card" style="background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 100%), url('assets/images/imersão.jpg') center/cover no-repeat;">
+              <div class="badge-container">
+                <span class="card-badge">Imersão</span>
+                <span class="card-badge">VR</span>
+              </div>
+              <div class="card-content">
+                <h3>Realidade Virtual</h3>
+                <p>
+                  Desenvolvemos experiências imersivas e ambientes virtuais
+                  personalizados, projetados para treinamentos, apresentações e
+                  vivências interativas. Utilizamos tecnologia de realidade
+                  virtual para criar soluções envolventes, realistas e adaptadas
+                  às necessidades de cada projeto.
+                </p>
+              </div>
+            </div>
+            <div class="service-card mobile-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.2) 100%), url('assets/images/mobile.jpg') center/cover no-repeat;">
+              <div class="badge-container">
+                <span class="card-badge">Mobile</span>
+              </div>
               <div class="card-content">
                 <h3>Aplicativos Mobile</h3>
-                <p>Desenvolvimento iOS e Android para suas ideias</p>
+                <p>
+                  Desenvolvemos aplicativos mobile que transformam ideias em
+                  resultados. Soluções personalizadas, design inteligente e
+                  tecnologia preparada para o futuro.
+                </p>
               </div>
             </div>
           </div>
@@ -240,23 +302,27 @@
 
         <div class="blog-content">
           <div class="noticia-destaque">
-            <img src="assets/images/guarda-municipal-treinament.jpg" alt="Treinamento da Guarda Municipal em simulador" class="noticia-imagem">
+            <img
+              src="assets/images/guarda-municipal-treinament.jpg"
+              alt="Treinamento da Guarda Municipal em simulador"
+              class="noticia-imagem"
+            />
           </div>
 
           <div class="noticia-info">
             <div class="noticia-cabecalho">
               <h2 class="noticia-titulo">
-              Prefeitura investe na capacitação da Guarda Municipal com
-              treinamento em simulador
-            </h2>
-            <span class="badge-destaque">Em destaque</span>
+                Prefeitura investe na capacitação da Guarda Municipal com
+                treinamento em simulador
+              </h2>
+              <span class="badge-destaque">Em destaque</span>
             </div>
-            
+
             <p class="noticia-descricao">
               Guardas Municipais de Macaé participam de instrução por meio do
               simulador de tomada de decisão de uso da arma. A ação acontece na
-              Escola do Servidor e faz parte do fluxo contínuo de treinamento, 
-              com apoio da SkyX na disponibilização da tecnologia em parceria 
+              Escola do Servidor e faz parte do fluxo contínuo de treinamento,
+              com apoio da SkyX na disponibilização da tecnologia em parceria
               com a Secretaria de Tecnologia de Macaé.
             </p>
             <div class="noticia-acoes">
@@ -351,6 +417,6 @@
       </div>
     </main>
 
-    <script src="script.js"></script>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>
