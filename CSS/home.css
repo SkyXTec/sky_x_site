@@ -41,7 +41,7 @@ header {
   & nav {
     display: flex;
     flex-direction: row;
-    gap: 26px;
+    gap: 30px;
 
     color: var(--color-white);
 
@@ -50,7 +50,7 @@ header {
     border-radius: 1.35rem;
 
     height: 3.125rem;
-    padding: 0 1.5rem;
+    padding: 0 2rem;
     align-items: center;
 
     box-shadow: var(--shadow-primary-sm);
@@ -64,8 +64,7 @@ header {
       list-style: none;
       display: flex;
       flex-direction: row;
-      gap: 26px;
-
+      gap: 30px;
       li {
         font-weight: 300;
         font-size: 1rem;
@@ -1423,9 +1422,7 @@ header {
 .projeto-card {
   background: var(--gradient-neutral);
   border-radius: var(--radius-lg);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
   cursor: pointer;
   position: relative;
   overflow: hidden;

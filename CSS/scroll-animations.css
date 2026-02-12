@@ -1,0 +1,15 @@
+
+/* --- GSAP Animation Helpers --- */
+
+/* 
+   Mantemos apenas a opacidade zero inicial para evitar FOUC (Flash of Unstyled Content).
+   O GSAP assumirá o controle dessas propriedades.
+*/
+
+.scroll-fade-up,
+.scroll-fade-down,
+.scroll-fade-in,
+.scroll-scale-in {
+    opacity: 0;
+    visibility: hidden;
+}

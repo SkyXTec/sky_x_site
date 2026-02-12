@@ -79,6 +79,10 @@
   --breakpoint-wide: 1440px;       /* Telas grandes */
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -163,6 +167,15 @@ main {
 
 .curved-edge {
   --c: 160px; /* control the curvature (works with percentage) */
+  /* Variáveis de posição para animação (GSAP) */
+  --g1-x: 90%; --g1-y: -80%;
+  --g2-x: 80%; --g2-y: 170%;
+  --g3-x: 20%; --g3-y: 0%;
+  --g4-x: 50%; --g4-y: 40%;
+  --g5-x: 50%; --g5-y: 40%;
+  --g6-x: 30%; --g6-y: 40%;
+  --g7-x: 70%; --g7-y: 60%;
+
   height: 1000px;
   width: 120vw;
   aspect-ratio: 1.5;
@@ -175,43 +188,43 @@ main {
     0 calc(-1 * var(--c));
   background:
     radial-gradient(
-      at 90% -80%,
+      at var(--g1-x) var(--g1-y),
       rgb(255, 255, 255) 30%,
       rgba(255, 255, 255, 0.6) 40%,
       transparent 75%
     ),
     radial-gradient(
-      at 80% 170%,
+      at var(--g2-x) var(--g2-y),
       rgb(255, 255, 255) 10%,
       rgba(255, 255, 255, 0.6) 40%,
       transparent 75%
     ),
     radial-gradient(
-      1200px 400px at 20% 0%,
+      1200px 400px at var(--g3-x) var(--g3-y),
       rgb(255, 255, 255) 10%,
       rgba(255, 255, 255, 0.6) 40%,
       transparent 75%
     ),
     radial-gradient(
-      700px 50px at 50% 40%,
+      700px 50px at var(--g4-x) var(--g4-y),
       rgb(115, 190, 255) 10%,
       rgba(87, 199, 255, 0.3) 10%,
       transparent 75%
     ),
     radial-gradient(
-      700px 100px at 50% 40%,
+      700px 100px at var(--g5-x) var(--g5-y),
       rgb(76, 166, 244) 10%,
       rgba(251, 253, 255, 0.6) 25%,
       transparent 25%
     ),
     radial-gradient(
-      at 30% 40%,
+      at var(--g6-x) var(--g6-y),
       rgba(142, 217, 255, 0.3) 0%,
       rgba(212, 236, 255, 0.15) 30%,
       transparent 70%
     ),
     radial-gradient(
-      at 70% 60%,
+      at var(--g7-x) var(--g7-y),
       rgba(180, 225, 255, 0.8) 0%,
       rgba(212, 236, 255, 0.1) 40%,
       transparent 75%

@@ -33,11 +33,12 @@ function initTabNavigation() {
       // Atualizar hash na URL sem scroll
       history.pushState(null, null, `#${targetId}`);
       
-      // Scroll suave para o topo da página
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+      // Scroll suave para o topo da página (GSAP)
+      if (typeof gsap !== 'undefined') {
+        gsap.to(window, { duration: 0.8, scrollTo: 0, ease: "power2.inOut" });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     });
   });
 }

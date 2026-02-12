@@ -78,14 +78,22 @@ function initSmoothScroll() {
       if (targetSection) {
         e.preventDefault();
         
-        const headerOffset = 100;
-        const elementPosition = targetSection.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
+        if (typeof gsap !== 'undefined') {
+          gsap.to(window, {
+            duration: 1.2,
+            scrollTo: { y: targetSection, offsetY: 100 },
+            ease: "power2.inOut"
+          });
+        } else {
+          const headerOffset = 100;
+          const elementPosition = targetSection.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
       }
     });
   });

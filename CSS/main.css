@@ -5,6 +5,8 @@
 
 /* Base e Reset (usado por todas as páginas) */
 @import url('base.css');
+@import url('animations.css');
+@import url('scroll-animations.css');
 
 /* Estilos da Home (consolidado) */
 @import url('home.css');
