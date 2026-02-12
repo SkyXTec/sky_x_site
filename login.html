@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - SKY X Dashboard</title>
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Background gradiente -->
+      <div class="background"></div>
+
+      <!-- Card de login -->
+      <div class="login-card">
+        <div class="header">
+          <h1 class="title">Bem vindo</h1>
+          <p class="subtitle">Faça login no Dashboard</p>
+        </div>
+
+        <form id="loginForm" class="form">
+          <div class="input-wrapper">
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Usuario"
+              class="input"
+              required
+            />
+          </div>
+
+          <div class="input-wrapper">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Senha"
+              class="input input-password"
+              required
+            />
+          </div>
+
+          <button type="submit" class="button" id="loginBtn">Entrar</button>
+
+          <a href="#" class="create-account">criar uma conta</a>
+        </form>
+      </div>
+
+      <!-- Logo no rodapé -->
+      <div class="footer-login">
+        <div class="logo-login"><img src="assets/images/logo-branca.png" alt="" loading="lazy"></div>
+      </div>
+    </div>
+
+    <script src="js/login.js"></script>
+  </body>
+</html>

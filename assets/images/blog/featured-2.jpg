@@ -1,0 +1,10 @@
+<svg width="250" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad-featured-2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="250" height="200" fill="url(#grad-featured-2)"/>
+  <text x="50%" y="50%" font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">UX/UI DESIGN</text>
+</svg>

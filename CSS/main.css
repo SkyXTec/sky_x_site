@@ -3,18 +3,14 @@
  * Importa todos os módulos CSS do projeto
  */
 
-/* Base e Reset */
+/* Base e Reset (usado por todas as páginas) */
 @import url('base.css');
 
-/* Componentes de Layout */
-@import url('header.css');
-@import url('hero.css');
-@import url('footer-hero.css');
+/* Estilos da Home (consolidado) */
+@import url('home.css');
 
-/* Seções */
-@import url('sobre.css');
-@import url('servicos.css');
-@import url('cards.css');
-@import url('portfolio.css');
-@import url('blog.css');
-@import url('contato.css');
+/* Páginas Avulsas */
+@import url('portfolio-page.css');
+@import url('legal.css');
+@import url('blog-page.css');
+@import url('login.css');

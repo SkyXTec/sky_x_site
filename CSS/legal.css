@@ -1,0 +1,368 @@
+/* ========================================
+   PÁGINA LEGAL (TERMOS E PRIVACIDADE)
+   ======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--color-white);
+  color: var(--color-black);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.legal-header {
+  width: 1200px;
+  display: flex;
+  padding: var(--space-xl) var(--space-lg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+}
+
+.back-link {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 0.938rem;
+  color: var(--color-gray-500);
+  text-decoration: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  color: var(--color-primary);
+  background: var(--bg-primary-10);
+}
+
+.logo-header {
+    width: 170px;
+}
+
+/* ========================================
+   NAVEGAÇÃO INTERNA
+   ======================================== */
+
+.legal-nav {
+  background: var(--bg-white-50);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 88px;
+  z-index: 99;
+  backdrop-filter: blur(10px);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  gap: var(--space-xl);
+}
+
+.nav-link {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--color-gray-500);
+  text-decoration: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+  background: var(--bg-primary-10);
+}
+
+.nav-link.active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -13px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+}
+
+/* ========================================
+   CONTEÚDO PRINCIPAL
+   ======================================== */
+
+.legal-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-3xl) var(--space-lg);
+}
+
+.legal-section {
+  margin-bottom: var(--space-4xl);
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
+.legal-section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.legal-section:last-child {
+  margin-bottom: 0;
+}
+
+.section-container {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3xl);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: var(--color-black);
+  margin-bottom: var(--space-2xl);
+  padding-bottom: var(--space-md);
+  border-bottom: 3px solid var(--color-primary);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-content {
+  color: var(--color-gray-700);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.section-content h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--color-black);
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-md);
+}
+
+.section-content p {
+  margin-bottom: var(--space-md);
+}
+
+.section-content p.intro {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--color-black);
+  margin-bottom: var(--space-xl);
+  line-height: 1.7;
+}
+
+.section-content ul {
+  margin: var(--space-md) 0 var(--space-lg) var(--space-xl);
+  list-style: none;
+}
+
+.section-content ul li {
+  position: relative;
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.section-content ul li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.section-content strong {
+  color: var(--color-black);
+  font-weight: 600;
+}
+
+.effective-date {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.938rem;
+  color: var(--color-gray-500);
+  font-style: italic;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.legal-footer {
+width: 100%;
+  background: var(--color-black);
+  padding: var(--space-2xl) var(--space-lg);
+  margin-top: var(--space-4xl);
+}
+
+.footer-container .legal {
+  margin: 0 auto;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-container p {
+  margin-bottom: var(--space-sm);
+  font-size: 0.938rem;
+}
+
+.footer-links {
+  margin-top: var(--space-md);
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--color-primary);
+}
+
+.separator {
+  margin: 0 var(--space-sm);
+  opacity: 0.5;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .legal-nav {
+    top: 72px;
+  }
+
+  .nav-container {
+    gap: var(--space-md);
+  }
+
+  .nav-link {
+    font-size: 0.938rem;
+  }
+
+  .section-container {
+    padding: var(--space-2xl) var(--space-lg);
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-content h3 {
+    font-size: 1.25rem;
+  }
+
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .legal-header {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .legal-main {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .legal-nav {
+    top: 95px;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+  }
+
+  .nav-link.active::after {
+    display: none;
+  }
+
+  .section-container {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .section-content {
+    font-size: 0.938rem;
+  }
+
+  .section-content h3 {
+    font-size: 1.125rem;
+    margin-top: var(--space-xl);
+  }
+
+  .section-content ul {
+    margin-left: var(--space-md);
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .separator {
+    display: none;
+  }
+}

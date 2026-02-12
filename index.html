@@ -5,11 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SKY x - Tecnologia e Inovação</title>
 
+    <!-- SEO -->
+    <meta name="description" content="SKY X - Soluções inovadoras em realidade virtual, desenvolvimento de software e experiências imersivas. Transformando ideias em tecnologia.">
+    <meta name="keywords" content="realidade virtual, VR, desenvolvimento software, tecnologia, inovação, córtex VR, experiências imersivas, Macaé">
+    <meta name="author" content="SKY X Tecnologia">
+    <!-- Nota: Criar arquivo favicon.png e apple-touch-icon.png na pasta assets/icons/ -->
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="apple-touch-icon" href="assets/images/logo.png">
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://skyxtecnologia.com.br/">
+    <meta property="og:title" content="SKY X - Tecnologia e Inovação em Realidade Virtual">
+    <meta property="og:description" content="Transformamos ideias em experiências digitais inovadoras através de realidade virtual e desenvolvimento de software.">
+    <!-- Nota: Criar arquivo og-image.jpg (1200x630px) na pasta assets/images/ -->
+    <meta property="og:image" content="https://skyxtecnologia.com.br/assets/images/img-hero.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Cards -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://skyxtecnologia.com.br/">
+    <meta property="twitter:title" content="SKY X - Tecnologia e Inovação">
+    <meta property="twitter:description" content="Transformando ideias em experiências digitais inovadoras">
+    <meta property="twitter:image" content="https://skyxtecnologia.com.br/assets/images/img-hero.png">
+
+    <!-- Fonts Preload -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Roboto+Condensed:wght@200;300;400&display=swap">
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Roboto+Condensed:wght@200;300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Roboto+Condensed:wght@200;300;400&display=swap"
       rel="stylesheet"
     />
 
@@ -18,8 +46,10 @@
   </head>
   <body>
     <div class="curved-edge"></div>
-    <!-- Header -->
-
+    
+    <!-- ========================================
+         HEADER & HERO SECTION
+         ======================================== -->
     <main>
       <section class="home">
         <header class="header">
@@ -37,24 +67,45 @@
               <li><a href="#blog">Blog</a></li>
               <li><a href="#contato">Contato</a></li>
             </ul>
-            <button class="btn-login">Login</button>
+            <!-- Redes Sociais Mobile -->
+            <div class="nav-social-icons">
+              <a href="#" aria-label="Facebook">
+                <img src="assets/icons/facebook.svg" alt="Facebook" loading="lazy" />
+              </a>
+              <a target="_blank" href="https://www.instagram.com/skyxtecnologia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram">
+                <img src="assets/icons/instagram.svg" alt="Instagram" loading="lazy" />
+              </a>
+              <a href="#" aria-label="LinkedIn">
+                <img src="assets/icons/linkedin.svg" alt="LinkedIn" loading="lazy" />
+              </a>
+              <a href="#" aria-label="TikTok">
+                <img src="assets/icons/tiktok.svg" alt="TikTok" loading="lazy" />
+              </a>
+            </div>
           </nav>
 
-          <!-- Social Icons -->
+          <!-- Social Icons Desktop -->
           <div class="social-icons">
             <a href="#" aria-label="Facebook">
-              <img src="assets/icons/facebook.svg" alt="Facebook" />
+              <img src="assets/icons/facebook.svg" alt="Facebook" loading="lazy" />
             </a>
-            <a href="#" aria-label="Instagram">
-              <img src="assets/icons/instagram.svg" alt="Instagram" />
+            <a target="_blank" href="https://www.instagram.com/skyxtecnologia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram">
+              <img src="assets/icons/instagram.svg" alt="Instagram" loading="lazy" />
             </a>
             <a href="#" aria-label="LinkedIn">
-              <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
+              <img src="assets/icons/linkedin.svg" alt="LinkedIn" loading="lazy" />
             </a>
             <a href="#" aria-label="TikTok">
-              <img src="assets/icons/tiktok.svg" alt="TikTok" />
+              <img src="assets/icons/tiktok.svg" alt="TikTok" loading="lazy" />
             </a>
           </div>
+
+          <!-- Menu Hamburger -->
+          <button class="menu-toggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </header>
         <!-- Hero Section -->
         <section class="hero">
@@ -68,7 +119,7 @@
             </h1>
             <div class="brilho1">
               <div class="brilho2">
-                <button class="btn-cta">Explore Agora</button>
+                <button class="btn-cta"> <a href="#sobre">Explore Agora</a></button>
               </div>
             </div>
           </div>
@@ -85,20 +136,20 @@
           <div class="footer-hero-right">
             <h3>Tecnologia que transforma</h3>
             <p>
-              Desenvolvemos soluções imersivas de realidade virtual que<br />
-              elevam experiências digitais a um novo patamar. Nossa missão é<br />
-              criar ambientes virtuais que conectam pessoas, ideias e
-              possibilidades,<br />
-              transformando a forma como você interage com o mundo digital.
+              Soluções imersivas em realidade virtual que conectam pessoas e
+              possibilidades.
             </p>
           </div>
         </section>
       </section>
 
+      <!-- ========================================
+           SOBRE NÓS
+           ======================================== -->
       <section class="sobre" id="sobre">
         <div class="cabecalho-sobre">
           <div class="title-sobre">
-            <h1>Conheça a Sky X</h1>
+            <h2>Conheça a Sky X</h2>
             <p>
               Somos uma empresa inovadora focada em desenvolver soluções
               tecnológicas que transformam experiências digitais. Com expertise
@@ -108,23 +159,42 @@
             </p>
           </div>
           <div>
-            <button class="btn-sobre">Leia mais</button>
+            <button class="btn-sobre" data-modal="sobre">Leia mais</button>
           </div>
         </div>
 
         <section class="cards-sobre">
-          <div class="card-esquerda"></div>
-          <div class="card-mid-top"></div>
-          <div class="card-mid-bottom"></div>
-          <div class="card-esquerda-top"></div>
-          <div class="card-esquerda-bottom"></div>
+          <div class="card-esquerda">
+            <img src="assets/images/img-sobre-1.png" alt="">
+          </div>
+          <div class="card-mid-top card-texto">
+            <div class="texto-content">
+              <h3>Inovação</h3>
+              <p>Transformamos ideias em realidade através de tecnologia de ponta</p>
+            </div>
+          </div>
+          <div class="card-mid-bottom">
+            <img src="assets/images/img-sobre-3.png" alt="">
+          </div>
+          <div class="card-esquerda-top">
+            <img src="assets/images/img-sobre-4.png" alt="">
+          </div>
+          <div class="card-esquerda-bottom card-texto">
+            <div class="texto-content">
+              <h3>Excelência</h3>
+              <p>Qualidade em cada projeto que desenvolvemos</p>
+            </div>
+          </div>
         </section>
       </section>
 
+      <!-- ========================================
+           SERVIÇOS
+           ======================================== -->
       <section class="servicos" id="servicos">
         <div class="cabecalho-servicos">
           <div class="title-servicos">
-            <h1>Nossos serviços</h1>
+            <h2>Nossos serviços</h2>
           </div>
           <div class="descricao-servicos">
             <p>
@@ -174,7 +244,7 @@
                     rgba(0, 0, 0, 0.3) 0%,
                     rgba(0, 0, 0, 0.2) 100%
                   ),
-                  url(&quot;assets/images/imersão.jpg&quot;) center/cover
+                  url(&quot;assets/images/imersao.jpg&quot;) center/cover
                     no-repeat;
               "
             >
@@ -311,7 +381,7 @@
                     rgba(0, 0, 0, 0.3) 0%,
                     rgba(0, 0, 0, 0.2) 100%
                   ),
-                  url(&quot;assets/images/imersão.jpg&quot;) center/cover
+                  url(&quot;assets/images/imersao.jpg&quot;) center/cover
                     no-repeat;
               "
             >
@@ -359,11 +429,14 @@
         </div>
       </section>
 
+      <!-- ========================================
+           PORTFÓLIO
+           ======================================== -->
       <section class="portfolio" id="portfolio">
         <div class="portfolio-content">
           <div class="portfolio-info">
             <div class="portfolio-text">
-              <h1 class="portfolio-title">Projetos</h1>
+              <h2 class="portfolio-title">Projetos</h2>
               <p class="portfolio-descricao">
                 Desenvolvemos projetos inovadores que combinam tecnologia de
                 ponta com design excepcional, criando experiências digitais que
@@ -373,72 +446,170 @@
 
             <div class="portfolio-destaque">
               <div>
-                <h2>Veja nosso portfólio</h2>
+                <h3>Veja nosso portfólio</h3>
                 <p>Conheça nossos projetos mais recentes</p>
               </div>
-              <button class="btn-portfolio">Ir para portfólio</button>
+              <a href="portfolio-page.html" class="btn-portfolio">Ir para portfólio</a>
             </div>
           </div>
 
           <div class="projetos-grid">
-            <div class="projeto-card projeto-card-1"></div>
-            <div class="projeto-card projeto-card-2"></div>
+            <div class="projeto-card projeto-card-1">
+              <img src="assets/images/cortex-img.png" alt="">
+            </div>
+            <div class="projeto-card projeto-card-2">
+              <img src="assets/images/neuro-verso-img.png" alt="">
+            </div>
           </div>
         </div>
       </section>
 
+      <!-- ========================================
+           BLOG E NOTÍCIAS
+           ======================================== -->
       <section class="blog" id="blog">
         <div class="blog-header">
-          <h1>Blog e notícias</h1>
+          <h2>Blog e notícias</h2>
           <p>
             Acompanhe novidades, notícias e inovações<br />junto com a Sky X
           </p>
         </div>
 
-        <div class="blog-content">
-          <div class="noticia-destaque">
-            <img
-              src="assets/images/guarda-municipal-treinament.jpg"
-              alt="Treinamento da Guarda Municipal em simulador"
-              class="noticia-imagem"
-            />
-          </div>
+        <!-- Carrossel de Notícias -->
+        <div class="blog-carousel-container">
+          <!-- Botão Anterior -->
+          <button class="carousel-btn carousel-btn-prev" aria-label="Notícia anterior">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
 
-          <div class="noticia-info">
-            <div class="noticia-cabecalho">
-              <h2 class="noticia-titulo">
-                Prefeitura investe na capacitação da Guarda Municipal com
-                treinamento em simulador
-              </h2>
-              <span class="badge-destaque">Em destaque</span>
+          <!-- Container do Carrossel -->
+          <div class="blog-carousel">
+            <!-- Notícia 1 -->
+            <div class="blog-content active" data-noticia="1">
+              <div class="noticia-destaque">
+                <img
+                  src="assets/images/guarda-municipal-treinament.jpg"
+                  alt="Treinamento da Guarda Municipal em simulador"
+                  class="noticia-imagem"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="noticia-info">
+                <div class="noticia-cabecalho">
+                  <h3 class="noticia-titulo">
+                    Prefeitura investe na capacitação da Guarda Municipal com
+                    treinamento em simulador
+                  </h3>
+                  <span class="badge-destaque">Em destaque</span>
+                </div>
+
+                <p class="noticia-descricao">
+                  Guardas Municipais de Macaé participam de instrução por meio do
+                  simulador de tomada de decisão de uso da arma. A ação acontece na
+                  Escola do Servidor e faz parte do fluxo contínuo de treinamento,
+                  com apoio da SkyX na disponibilização da tecnologia em parceria
+                  com a Secretaria de Tecnologia de Macaé.
+                </p>
+                <div class="noticia-acoes">
+                  <button class="btn-noticia" data-modal="1">
+                    Veja a notícia completa
+                  </button>
+                  <a href="blog.html" class="btn-noticias-secundario">Outras notícias</a>
+                </div>
+              </div>
             </div>
 
-            <p class="noticia-descricao">
-              Guardas Municipais de Macaé participam de instrução por meio do
-              simulador de tomada de decisão de uso da arma. A ação acontece na
-              Escola do Servidor e faz parte do fluxo contínuo de treinamento,
-              com apoio da SkyX na disponibilização da tecnologia em parceria
-              com a Secretaria de Tecnologia de Macaé.
-            </p>
-            <div class="noticia-acoes">
-              <button class="btn-noticia" id="openModal">
-                Veja a notícia completa
-              </button>
-              <button class="btn-noticias-secundario">Outras notícias</button>
+            <!-- Notícia 2 -->
+            <div class="blog-content" data-noticia="2">
+              <div class="noticia-destaque">
+                <img
+                  src="assets/images/noticia-crios.jpg"
+                  alt="Parceria CRIOS-UFRJ e SKY X"
+                  class="noticia-imagem"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="noticia-info">
+                <div class="noticia-cabecalho">
+                  <h3 class="noticia-titulo">
+                    CRIOS-UFRJ e SKY X se unem para revolucionar ensino com Realidade Virtual
+                  </h3>
+                  <span class="badge-destaque">Em destaque</span>
+                </div>
+
+                <p class="noticia-descricao">
+                  O CRIOS-UFRJ e a startup SKY X Tecnologia iniciam parceria estratégica para desenvolver soluções educacionais com Realidade Virtual e Aumentada. A colaboração inclui transferência de tecnologia de software de espelhamento e controle de dispositivos imersivos, sem custos para a universidade, beneficiando cursos de Engenharia, Medicina e Ciências da Saúde.
+                </p>
+                <div class="noticia-acoes">
+                  <button class="btn-noticia" data-modal="2">
+                    Veja a notícia completa
+                  </button>
+                  <a href="blog.html" class="btn-noticias-secundario">Outras notícias</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Notícia 3 -->
+            <div class="blog-content" data-noticia="3">
+              <div class="noticia-destaque">
+                <img
+                  src="assets/images/blog/featured-3.jpg"
+                  alt="Inovação Tecnológica"
+                  class="noticia-imagem"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="noticia-info">
+                <div class="noticia-cabecalho">
+                  <h3 class="noticia-titulo">
+                    SkyX anuncia parceria estratégica para desenvolvimento de novas soluções
+                  </h3>
+                  <span class="badge-destaque">Em destaque</span>
+                </div>
+
+                <p class="noticia-descricao">
+                  Em uma iniciativa que promete revolucionar o mercado de tecnologia imersiva, a SkyX anuncia nova parceria focada no desenvolvimento de soluções inovadoras. O projeto visa integrar inteligência artificial com realidade virtual para criar experiências ainda mais personalizadas e eficientes.
+                </p>
+                <div class="noticia-acoes">
+                  <button class="btn-noticia" data-modal="3">
+                    Veja a notícia completa
+                  </button>
+                  <a href="blog.html" class="btn-noticias-secundario">Outras notícias</a>
+                </div>
+              </div>
             </div>
           </div>
+
+          <!-- Botão Próximo -->
+          <button class="carousel-btn carousel-btn-next" aria-label="Próxima notícia">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Indicadores -->
+        <div class="carousel-indicators">
+          <button class="indicator active" data-slide="1" aria-label="Ir para notícia 1"></button>
+          <button class="indicator" data-slide="2" aria-label="Ir para notícia 2"></button>
+          <button class="indicator" data-slide="3" aria-label="Ir para notícia 3"></button>
         </div>
       </section>
 
-      <!-- Modal -->
-      <div id="noticiaModal" class="modal">
+      <!-- Modal Notícia 1 -->
+      <div id="noticiaModal1" class="modal">
         <div class="modal-content">
           <span class="modal-close">&times;</span>
           <div class="modal-header">
-            <h1>
+            <h2>
               Prefeitura investe na capacitação da Guarda Municipal com
               treinamento em simulador de tomada de decisões
-            </h1>
+            </h2>
             <p class="modal-data">
               29/01/2026 15:24:00 - Jornalista: Carla Cardoso
             </p>
@@ -511,6 +682,221 @@
         </div>
       </div>
 
+      <!-- Modal Notícia 2 -->
+      <div id="noticiaModal2" class="modal">
+        <div class="modal-content">
+          <span class="modal-close">&times;</span>
+          <div class="modal-header">
+            <h2>
+              Solução educacional com Realidade Virtual e Aumentada é potencializada com interação entre o CRIOS-UFRJ e a Startup SKY X
+            </h2>
+            <p class="modal-data">
+              11/02/2026 - Fonte: CRIOS-UFRJ
+            </p>
+          </div>
+          <div class="modal-body">
+            <p>
+              O CRIOS-UFRJ e a startup SKY X Tecnologia têm desafios em comum: desenvolver soluções inovadoras com Realidade Virtual e Aumentada (Realidade Mista) para uso educacional. Nos últimos meses foram iniciadas conversas sobre oportunidades de colaboração, com foco nas necessidades pedagógicas e operacionais do CRIOS Tech Lab, especialmente no uso de múltiplos óculos de RV em ambientes acadêmicos.
+            </p>
+
+            <p>
+              A SKY X está em fase final de desenvolvimento de um software de espelhamento e controle centralizado de dispositivos imersivos, que permite maior controle, acompanhamento e padronização de experiências imersivas em sala de aula e laboratórios.
+            </p>
+
+            <p>
+              Visando o desenvolvimento de testes em escala, o aprimoramento de soluções e a melhoria na qualidade de ensino da universidade, a startup pretende fazer a Transferência de Tecnologia do novo software para a UFRJ, processo que deve passar pela análise da INOVA UFRJ para efetivação desta cooperação que será sem custos para a Universidade.
+            </p>
+
+            <blockquote>
+              <p>
+                "A incorporação dessa tecnologia pode fortalecer diretamente cursos como Engenharia, Química, Medicina e Ciências da Saúde na UFRJ-Macaé."
+              </p>
+              <cite>- Equipe CRIOS Tech Lab</cite>
+            </blockquote>
+
+            <p>
+              Ao compartilhar conhecimento, tecnologia e soluções de impacto para o ambiente acadêmico, a SKY X estará promovendo avanços reais na formação de estudantes e pesquisadores.
+            </p>
+
+            <p>
+              O CRIOS Tech Lab segue comprometido em avaliar soluções locais inovadoras que possam fortalecer o uso educacional da Realidade Virtual, sempre com responsabilidade institucional, transparência e foco na excelência acadêmica.
+            </p>
+
+            <blockquote>
+              <p>
+                "A SKY X Tecnologia agradece ao CRIOS-UFRJ pela confiança e pela oportunidade de construir essa colaboração estratégica. Nosso compromisso é desenvolver e potencializar soluções em Realidade Virtual e Aumentada que ampliem o acesso ao conhecimento, elevem a qualidade do ensino e gerem impacto real na formação acadêmica."
+              </p>
+              <cite>- SKY X Tecnologia</cite>
+            </blockquote>
+
+            <p>
+              Seguimos empenhados em usar a tecnologia como ferramenta de transformação educacional, inovação e futuro. 🚀📚
+            </p>
+
+            <a
+              href="https://www.instagram.com/p/DUoJJlej6tL/"
+              target="_blank"
+              class="fonte-link"
+              >Fonte: Instagram @criosufrj</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Notícia 3 -->
+      <div id="noticiaModal3" class="modal">
+        <div class="modal-content">
+          <span class="modal-close">&times;</span>
+          <div class="modal-header">
+            <h2>
+              SKY X anuncia parceria estratégica para desenvolvimento de novas soluções
+            </h2>
+            <p class="modal-data">
+              10/02/2026
+            </p>
+          </div>
+          <div class="modal-body">
+            <p>
+              Em uma iniciativa que promete revolucionar o mercado de tecnologia imersiva, a SkyX anuncia nova parceria focada no desenvolvimento de soluções inovadoras. O projeto visa integrar inteligência artificial com realidade virtual para criar experiências ainda mais personalizadas e eficientes.
+            </p>
+
+            <p>
+              A nova solução permitirá que empresas e instituições de ensino tenham acesso a plataformas de treinamento e educação completamente customizáveis, adaptando-se às necessidades específicas de cada setor e público-alvo.
+            </p>
+
+            <p>
+              Com esta parceria, a SKY X reforça seu compromisso com a inovação tecnológica e o desenvolvimento de soluções que fazem a diferença no dia a dia de seus clientes, sempre buscando excelência e resultados tangíveis.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Sobre a SKY X -->
+      <div id="sobreModal" class="modal">
+        <div class="modal-content">
+          <span class="modal-close">&times;</span>
+          <div class="modal-header">
+            <h2>Nossa História: SKY X Tecnologia</h2>
+            <p class="modal-data">Inovação, Tecnologia e Compromisso com o Futuro</p>
+          </div>
+          <div class="modal-body">
+            <h3>Quem Somos</h3>
+            <p>
+              A SKY X Tecnologia é uma empresa brasileira inovadora, com sede em Macaé-RJ, especializada no desenvolvimento de soluções tecnológicas de ponta em Realidade Virtual (VR), Realidade Aumentada (AR) e desenvolvimento de software personalizado. Nascemos com o propósito de transformar ideias em experiências digitais inovadoras que fazem a diferença na vida das pessoas e organizações.
+            </p>
+
+            <h3>Nossa Missão</h3>
+            <p>
+              Desenvolver e potencializar soluções em Realidade Virtual e Aumentada que ampliem o acesso ao conhecimento, elevem a qualidade do ensino e gerem impacto real na formação acadêmica e profissional. Seguimos empenhados em usar a tecnologia como ferramenta de transformação educacional, inovação e futuro.
+            </p>
+
+            <h3>Áreas de Atuação</h3>
+            <p>
+              Atuamos principalmente em três frentes estratégicas:
+            </p>
+            
+            <blockquote>
+              <p><strong>Educação e Treinamento</strong></p>
+              <p>
+                Desenvolvemos soluções educacionais imersivas para instituições de ensino e corporações. Nossa tecnologia permite experiências de aprendizado inovadoras que aumentam o engajamento e a retenção de conhecimento, beneficiando cursos de Engenharia, Medicina, Ciências da Saúde e diversas outras áreas.
+              </p>
+            </blockquote>
+
+            <blockquote>
+              <p><strong>Segurança Pública</strong></p>
+              <p>
+                Fornecemos simuladores de tomada de decisão e treinamento para forças de segurança. Nossos simuladores permitem que profissionais sejam treinados em ambientes controlados, desenvolvendo habilidades críticas de avaliação de cenários, controle emocional e tomada de decisão responsável.
+              </p>
+            </blockquote>
+
+            <blockquote>
+              <p><strong>Desenvolvimento de Software Customizado</strong></p>
+              <p>
+                Criamos soluções tecnológicas sob medida, incluindo software de espelhamento e controle centralizado de dispositivos imersivos, plataformas web e aplicativos que atendem necessidades específicas de cada cliente.
+              </p>
+            </blockquote>
+
+            <h3>Inovação e Tecnologia</h3>
+            <p>
+              Estamos em constante evolução tecnológica. Nossa equipe desenvolve soluções que integram Inteligência Artificial com Realidade Virtual para criar experiências cada vez mais personalizadas e eficientes. Nosso software de espelhamento e controle centralizado de dispositivos imersivos permite maior controle, acompanhamento e padronização de experiências imersivas em ambientes educacionais e corporativos.
+            </p>
+
+            <h3>Parcerias Estratégicas</h3>
+            <p>
+              Acreditamos no poder da colaboração. Mantemos parcerias estratégicas com instituições de excelência:
+            </p>
+            <p>
+              <strong>CRIOS-UFRJ:</strong> Colaboração focada no desenvolvimento e transferência de tecnologia para uso educacional na UFRJ, fortalecendo cursos de graduação e pós-graduação com soluções de Realidade Virtual e Aumentada.
+            </p>
+
+            <h3>Compromisso Social</h3>
+            <p>
+              Na SKY X, acreditamos que a tecnologia deve ser uma ferramenta de inclusão e transformação social. Por isso, trabalhamos em projetos de transferência de tecnologia sem custos para instituições públicas de ensino, democratizando o acesso a recursos tecnológicos de ponta.
+            </p>
+
+            <h3>Visão de Futuro</h3>
+            <p>
+              Nosso objetivo é ser referência nacional em soluções de Realidade Virtual e Aumentada, expandindo nossa atuação para novos mercados e continuando a desenvolver tecnologias que façam a diferença na vida das pessoas. Seguimos comprometidos com a excelência, inovação e impacto social positivo.
+            </p>
+
+            <blockquote>
+              <p>
+                "Transformando ideias em experiências digitais inovadoras. O futuro da realidade virtual começa aqui."
+              </p>
+              <cite>- SKY X Tecnologia</cite>
+            </blockquote>
+
+            <p style="margin-top: 2rem; text-align: center; font-weight: 500;">
+              📍 Macaé - RJ, Brasil<br>
+              🌐 Transformando o futuro com tecnologia 🚀
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================
+           PARCEIROS
+           ======================================== -->
+      <section id="parceiros" class="parceiros">
+
+        <div class="header-parceiros">
+          <h2>Parceiros</h2>
+          <p>Tecnolofia e inovação ao lado de quem transforma<br>ideias em soluções reais.</p>
+        </div>
+
+        <div class="parceiro-cards" id="parceiro-cards">
+          <div class="parceiro-card">
+            <img src="assets/images/logo-crios.png" alt="Parceiro 1" loading="lazy" />
+          </div>
+          <div class="parceiro-card">
+            <img src="assets/images/logo-novatech.png" alt="Parceiro 2" loading="lazy" />
+          </div>
+          <div class="parceiro-card">
+            <img src="" alt="Parceiro" loading="lazy" />
+          </div>
+          <div class="parceiro-card">
+            <img src="" alt="Parceiro" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="cta-parceiros">
+          <div class="text-cta">
+            <h3>Trabalhe conosco</h3>
+            <p> Desenvolvemos projetos focados em inovação, educação e avanço tecnológico. 
+              <br>Junte-se a nós para transformar ideias em soluções reais.
+            </p>
+          </div>
+          <div class="botoes-cta">
+            <button class="cta-button-1">Quero ser parceiro</button>
+            <button class="cta-button-2">Conhecer parcerias</button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ========================================
+           CONTATO
+           ======================================== -->
       <section class="contato" id="contato">
         <div class="contato-container">
           <div class="contato-info">
@@ -681,6 +1067,83 @@
       </section>
     </main>
 
-    <script type="module" src="js/main.js"></script>
+    <!-- ========================================
+         FOOTER
+         ======================================== -->
+    <footer class="footer" id="footer">
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="column-left">
+            <div class="footer-logo">
+              <img src="assets/icons/logo.svg" alt="Logo SKY X Tecnologia" loading="lazy" />
+            </div>
+
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
+              enim explicabo velit saepe ipsam tempore excepturi voluptatem nemo
+              aperiam neque eius laborum cum, unde accusa
+            </p>
+
+            <div class="social-icons-footer">
+              <a href="#" aria-label="Facebook">
+                <img src="assets/icons/facebook.svg" alt="Facebook" loading="lazy" />
+              </a>
+              <a href="#" aria-label="Instagram">
+                <img src="assets/icons/instagram.svg" alt="Instagram" loading="lazy" />
+              </a>
+              <a href="#" aria-label="LinkedIn">
+                <img src="assets/icons/linkedin.svg" alt="LinkedIn" loading="lazy" />
+              </a>
+              <a href="#" aria-label="TikTok">
+                <img src="assets/icons/tiktok.svg" alt="TikTok" loading="lazy" />
+              </a>
+            </div>
+          </div>
+
+          <div class="column-right">
+            <div class="column-1">
+              <h1>Menu</h1>
+              <ul class="footer-menu">
+                <li><a href="#sobre">Sobre nós</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contato">Contato</a></li>
+              </ul>
+            </div>
+
+            <div class="column-2">
+              <h1>Portfólio</h1>
+              <ul class="portfolio-links">
+                <li><a href="">Cortex VR</a></li>
+              </ul>
+            </div>
+
+            <div class="column-3">
+              <h1>Company</h1>
+              <ul>
+                <li><a href="">Trabalhe Conosco</a></li>
+                <li><a href="">Parceiros</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+          <div class="footer-bottom">
+            <p>© <span class="ano-atual"></span> SKY X TECNOLOGIA. Todos os direitos reservados.</p>
+
+            <div class="termos">
+              <p><a href="legal.html#privacidade">Politica de Privacidade</a></p>
+              <p><a href="legal.html#termos">Termos de Serviço</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <img class="footer-img" src="assets/icons/sky-x-footer.svg" alt="Elementos decorativos do rodapé" loading="lazy" />
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
   </body>
 </html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background: #1a1a1a;
+      color: white;
+    }
+    .test-section {
+      margin: 30px 0;
+      padding: 20px;
+      background: #2a2a2a;
+      border-radius: 8px;
+    }
+    button {
+      padding: 12px 24px;
+      margin: 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #4a90e2;
+      color: white;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #357abd;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal.active {
+      display: flex !important;
+    }
+    .modal-content {
+      background: white;
+      color: black;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+    }
+    .modal-close {
+      float: right;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .carousel {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .slide {
+      display: none;
+      padding: 20px;
+      background: #3a3a3a;
+      border-radius: 8px;
+      min-height: 100px;
+    }
+    .slide.active {
+      display: block;
+    }
+    .indicators {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #555;
+      padding: 0;
+      border: 2px solid #777;
+    }
+    .indicator.active {
+      background: #4a90e2;
+      border-color: #4a90e2;
+    }
+    .status {
+      margin: 10px 0;
+      padding: 10px;
+      background: #1e3a1e;
+      border-left: 4px solid #4caf50;
+      border-radius: 4px;
+    }
+    .error {
+      background: #3a1e1e;
+      border-left-color: #f44336;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧪 Teste de Funcionalidade JS</h1>
+  
+  <div id="status" class="status">
+    ⏳ Aguardando inicialização...
+  </div>
+
+  <!-- Teste Modal -->
+  <div class="test-section">
+    <h2>1. Teste de Modal</h2>
+    <button class="btn-noticia" data-modal="1">Abrir Modal 1</button>
+    <button class="btn-noticia" data-modal="2">Abrir Modal 2</button>
+    <button class="btn-sobre" data-modal="sobre">Abrir Modal Sobre</button>
+  </div>
+
+  <!-- Teste Carrossel -->
+  <div class="test-section">
+    <h2>2. Teste de Carrossel</h2>
+    <div class="carousel">
+      <button class="carousel-btn-prev">←</button>
+      <div style="flex: 1;">
+        <div class="slide active">Slide 1</div>
+        <div class="slide">Slide 2</div>
+        <div class="slide">Slide 3</div>
+      </div>
+      <button class="carousel-btn-next">→</button>
+    </div>
+    <div class="indicators">
+      <button class="indicator active"></button>
+      <button class="indicator"></button>
+      <button class="indicator"></button>
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <div id="noticiaModal1" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <h2>Modal 1</h2>
+      <p>Este é o modal de notícia 1</p>
+    </div>
+  </div>
+
+  <div id="noticiaModal2" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <h2>Modal 2</h2>
+      <p>Este é o modal de notícia 2</p>
+    </div>
+  </div>
+
+  <div id="sobreModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <h2>Modal Sobre</h2>
+      <p>Este é o modal sobre a empresa</p>
+    </div>
+  </div>
+
+  <script type="module">
+    const status = document.getElementById('status');
+    
+    function updateStatus(message, isError = false) {
+      status.textContent = message;
+      status.className = isError ? 'status error' : 'status';
+      console.log(message);
+    }
+
+    // Teste importação dos módulos
+    try {
+      updateStatus('✓ JavaScript carregado');
+      
+      // Importar módulos
+      import('./js/modal.js').then(module => {
+        updateStatus('✓ modal.js importado com sucesso');
+        module.initModal();
+        updateStatus('✓ initModal() executado');
+      }).catch(err => {
+        updateStatus('✗ Erro ao importar modal.js: ' + err.message, true);
+        console.error(err);
+      });
+
+      import('./js/carousel.js').then(module => {
+        console.log('✓ carousel.js importado');
+        
+        // Inicializar carrossel de teste
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.querySelector('.carousel-btn-prev');
+        const nextBtn = document.querySelector('.carousel-btn-next');
+        const indicators = document.querySelectorAll('.indicator');
+        
+        let currentSlide = 0;
+        
+        function showSlide(index) {
+          slides.forEach(s => s.classList.remove('active'));
+          indicators.forEach(i => i.classList.remove('active'));
+          slides[index].classList.add('active');
+          indicators[index].classList.add('active');
+        }
+        
+        nextBtn.addEventListener('click', () => {
+          currentSlide = (currentSlide + 1) % slides.length;
+          showSlide(currentSlide);
+          console.log('Next slide:', currentSlide);
+        });
+        
+        prevBtn.addEventListener('click', () => {
+          currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+          showSlide(currentSlide);
+          console.log('Prev slide:', currentSlide);
+        });
+        
+        indicators.forEach((ind, idx) => {
+          ind.addEventListener('click', () => {
+            currentSlide = idx;
+            showSlide(currentSlide);
+            console.log('Indicator clicked:', currentSlide);
+          });
+        });
+        
+        updateStatus('✓ Carrossel de teste inicializado');
+      }).catch(err => {
+        updateStatus('✗ Erro ao importar carousel.js: ' + err.message, true);
+        console.error(err);
+      });
+
+    } catch (error) {
+      updateStatus('✗ Erro crítico: ' + error.message, true);
+      console.error(error);
+    }
+
+    // Log de eventos
+    document.addEventListener('click', (e) => {
+      console.log('Clique em:', e.target.className || e.target.tagName);
+    });
+  </script>
+</body>
+</html>

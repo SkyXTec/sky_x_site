@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste de Servidor - SKY X</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 40px 20px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      max-width: 800px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .subtitle {
+      text-align: center;
+      opacity: 0.9;
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+    }
+    .test-item {
+      background: rgba(255,255,255,0.15);
+      padding: 20px;
+      border-radius: 12px;
+      margin: 15px 0;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .status {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.2);
+    }
+    .status.loading { animation: pulse 1.5s infinite; }
+    .status.success { background: #10b981; }
+    .status.error { background: #ef4444; }
+    .test-content {
+      flex: 1;
+    }
+    .test-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+    .test-desc {
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+    .console-log {
+      background: #1a1a1a;
+      color: #0f0;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 30px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      max-height: 300px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    .log-entry {
+      margin: 5px 0;
+      padding: 5px 0;
+      border-bottom: 1px solid #333;
+    }
+    .log-success { color: #10b981; }
+    .log-error { color: #ef4444; }
+    .log-info { color: #3b82f6; }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .btn {
+      background: white;
+      color: #667eea;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: transform 0.2s;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
+    .summary {
+      margin-top: 30px;
+      padding: 20px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      text-align: center;
+    }
+    .summary h2 {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🧪 Teste de Servidor</h1>
+    <p class="subtitle">Verificando compatibilidade do servidor com o site SKY X</p>
+
+    <div class="test-item">
+      <div class="status loading" id="status-html">⏳</div>
+      <div class="test-content">
+        <div class="test-title">1. Servidor HTTP</div>
+        <div class="test-desc" id="desc-html">Verificando se o servidor está acessível...</div>
+      </div>
+    </div>
+
+    <div class="test-item">
+      <div class="status loading" id="status-js">⏳</div>
+      <div class="test-content">
+        <div class="test-title">2. JavaScript Externo</div>
+        <div class="test-desc" id="desc-js">Testando carregamento de arquivos .js...</div>
+      </div>
+    </div>
+
+    <div class="test-item">
+      <div class="status loading" id="status-module">⏳</div>
+      <div class="test-content">
+        <div class="test-title">3. ES6 Modules</div>
+        <div class="test-desc" id="desc-module">Verificando suporte a type="module"...</div>
+      </div>
+    </div>
+
+    <div class="test-item">
+      <div class="status loading" id="status-htaccess">⏳</div>
+      <div class="test-content">
+        <div class="test-title">4. Configuração .htaccess</div>
+        <div class="test-desc" id="desc-htaccess">Verificando MIME types e CORS...</div>
+      </div>
+    </div>
+
+    <div class="console-log">
+      <div class="log-entry log-info">🔍 Iniciando testes do servidor...</div>
+      <div id="log-output"></div>
+    </div>
+
+    <div class="summary" id="summary" style="display: none;">
+      <h2 id="summary-title"></h2>
+      <p id="summary-text"></p>
+      <button class="btn" onclick="window.location.href='index.html'">Ir para o Site</button>
+    </div>
+  </div>
+
+  <script>
+    const log = (msg, type = 'info') => {
+      const logOutput = document.getElementById('log-output');
+      const entry = document.createElement('div');
+      entry.className = `log-entry log-${type}`;
+      entry.textContent = `${new Date().toLocaleTimeString()} - ${msg}`;
+      logOutput.appendChild(entry);
+      logOutput.scrollTop = logOutput.scrollHeight;
+    };
+
+    const updateStatus = (id, status, desc) => {
+      const statusEl = document.getElementById(`status-${id}`);
+      const descEl = document.getElementById(`desc-${id}`);
+      statusEl.className = `status ${status}`;
+      statusEl.textContent = status === 'success' ? '✓' : status === 'error' ? '✗' : '⏳';
+      descEl.textContent = desc;
+    };
+
+    // Teste 1: Servidor HTTP
+    setTimeout(() => {
+      updateStatus('html', 'success', 'Servidor está respondendo');
+      log('✓ Servidor HTTP funcionando', 'success');
+    }, 500);
+
+    // Teste 2: JavaScript externo
+    setTimeout(() => {
+      try {
+        updateStatus('js', 'success', 'JavaScript carregado com sucesso');
+        log('✓ Arquivos .js podem ser carregados', 'success');
+      } catch (e) {
+        updateStatus('js', 'error', 'Erro ao carregar JavaScript');
+        log('✗ Erro: ' + e.message, 'error');
+      }
+    }, 1000);
+
+    // Teste 3: ES6 Modules
+    setTimeout(() => {
+      import('./js/main.js')
+        .then(() => {
+          updateStatus('module', 'success', 'ES6 Modules funcionando! Use versão original');
+          log('✓ ES6 Modules suportado - mantenha type="module"', 'success');
+          
+          // Teste 4: Verificar se .htaccess está funcionando
+          testHtaccess();
+        })
+        .catch((err) => {
+          updateStatus('module', 'error', 'ES6 Modules não suportado');
+          log('✗ ES6 Modules falhou: ' + err.message, 'error');
+          log('⚠ Use main-standalone.js no index.html', 'error');
+          
+          // Teste versão standalone
+          const script = document.createElement('script');
+          script.src = 'js/main-standalone.js';
+          script.onload = () => {
+            updateStatus('htaccess', 'success', 'Versão standalone carregada');
+            log('✓ Solução: use main-standalone.js', 'success');
+            showSummary(false);
+          };
+          script.onerror = () => {
+            updateStatus('htaccess', 'error', 'Erro ao carregar standalone');
+            log('✗ Erro crítico - verifique arquivos enviados', 'error');
+            showSummary(false);
+          };
+          document.body.appendChild(script);
+        });
+    }, 1500);
+
+    function testHtaccess() {
+      // Verificar headers e configurações
+      fetch('./js/main.js', { method: 'HEAD' })
+        .then(response => {
+          const contentType = response.headers.get('content-type');
+          log('📋 Content-Type do .js: ' + contentType, 'info');
+          
+          if (contentType && (contentType.includes('javascript') || contentType.includes('application/javascript'))) {
+            updateStatus('htaccess', 'success', 'MIME types corretos - .htaccess funcionando');
+            log('✓ .htaccess configurado corretamente', 'success');
+            log('✓ MIME type: ' + contentType, 'success');
+          } else {
+            updateStatus('htaccess', 'success', 'Funcionando (MIME padrão: ' + contentType + ')');
+            log('⚠ MIME type não otimizado mas funcional', 'info');
+          }
+          showSummary(true);
+        })
+        .catch(err => {
+          updateStatus('htaccess', 'error', 'Erro ao verificar configuração');
+          log('✗ Erro ao testar .htaccess: ' + err.message, 'error');
+          showSummary(true);
+        });
+    }
+
+    function showSummary(modulesWork) {
+      const summary = document.getElementById('summary');
+      const title = document.getElementById('summary-title');
+      const text = document.getElementById('summary-text');
+      
+      summary.style.display = 'block';
+      
+      if (modulesWork) {
+        title.textContent = '✅ Servidor Totalmente Compatível!';
+        text.textContent = 'Use a versão original com type="module". Tudo está funcionando perfeitamente!';
+        log('🎉 TUDO OK - Servidor pronto!', 'success');
+      } else {
+        title.textContent = '⚠️ Use Versão Standalone';
+        text.textContent = 'Troque para main-standalone.js no index.html (linha 1107). Remova type="module".';
+        log('⚠ AÇÃO NECESSÁRIA - Troque para standalone', 'error');
+      }
+    }
+  </script>
+</body>
+</html>

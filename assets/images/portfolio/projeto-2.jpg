@@ -1,0 +1,10 @@
+<svg width="600" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#b0b0b0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#808080;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#grad2)"/>
+  <text x="50%" y="50%" font-family="Inter, sans-serif" font-size="48" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">PROJETO 2</text>
+</svg>

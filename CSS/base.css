@@ -1,8 +1,82 @@
 :root {
+  /* Cores Legadas (manter compatibilidade) */
   --primary-color: #141414;
   --secondary-color: #eeeeee;
   --font-color-black: #141414;
   --font-color-white: #ffffff;
+  
+  /* Sistema de Cores Completo */
+  --color-primary: #48baf3;
+  --color-primary-dark: #0b97dd;
+  --color-primary-light: #8bcbff;
+  --color-primary-hover: #40bbf8;
+  
+  --color-black: #141414;
+  --color-gray-900: #303030;
+  --color-gray-700: #4a4a4a;
+  --color-gray-500: #666666;
+  --color-gray-300: #b9b9b9;
+  --color-gray-100: #eeeeee;
+  --color-white: #ffffff;
+  
+  /* Backgrounds com Opacidade */
+  --bg-white-44: rgba(255, 255, 255, 0.44);
+  --bg-white-10: rgba(255, 255, 255, 0.1);
+  --bg-white-85: rgba(255, 255, 255, 0.85);
+  --bg-white-95: rgba(255, 255, 255, 0.95);
+  --bg-primary-10: rgba(72, 186, 243, 0.1);
+  
+  /* Shadows */
+  --shadow-primary-xs: 0 5px 10px rgba(72, 186, 243, 0.3);
+  --shadow-primary-sm: 0 2px 8px rgba(72, 186, 243, 0.15);
+  --shadow-primary-md: 0 4px 12px rgba(72, 186, 243, 0.25);
+  --shadow-primary-md-alt: 0 4px 15px rgba(72, 186, 243, 0.3);
+  --shadow-primary-lg: 0 8px 25px rgba(72, 186, 243, 0.15);
+  --shadow-primary-xl: 0 10px 20px rgba(72, 186, 243, 0.2);
+  --shadow-primary-xl-alt: 0 10px 20px rgba(72, 186, 243, 0.3);
+  --shadow-primary-2xl: 0 25px 30px rgba(72, 186, 243, 0.4);
+  --shadow-primary-active: 0 0 20px rgba(72, 186, 243, 0.4);
+  
+  /* Cores de Feedback */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+  
+  /* Tipografia */
+  --font-primary: "Inter", sans-serif;
+  --font-heading: "Roboto Condensed", sans-serif;
+  
+  /* Gradientes */
+  --gradient-primary: linear-gradient(to right, #48baf3, #0b97dd);
+  --gradient-primary-alt: linear-gradient(135deg, #90d3f5, #0b97dd);
+  --gradient-button: linear-gradient(90deg, #40bbf8 0%, #8bcbff 87.02%);
+  --gradient-neutral: linear-gradient(135deg, #d9d9d9 0%, #e8e8e8 100%);
+  
+  /* Border Radius */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 100px;
+  
+  /* Spacing Scale (baseado em 8px) */
+  --space-xs: 0.5rem;   /* 8px */
+  --space-sm: 0.75rem;  /* 12px */
+  --space-md: 1rem;     /* 16px */
+  --space-lg: 1.5rem;   /* 24px */
+  --space-xl: 2rem;     /* 32px */
+  --space-2xl: 3rem;    /* 48px */
+  --space-3xl: 4rem;    /* 64px */
+  --space-4xl: 5rem;    /* 80px */
+  
+  /* Breakpoints (para referência e documentação) */
+  --breakpoint-mobile: 480px;      /* Smartphones */
+  --breakpoint-tablet: 768px;      /* Tablets */
+  --breakpoint-laptop: 968px;      /* Laptops */
+  --breakpoint-desktop: 1200px;    /* Desktops */
+  --breakpoint-wide: 1440px;       /* Telas grandes */
 }
 
 * {
@@ -12,13 +86,13 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
-  background-color: rgb(255, 255, 255);
+  font-family: var(--font-primary);
+  background-color: var(--color-white);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  color: #000000;
+  color: var(--color-black);
   overflow-x: hidden;
   overflow-y: auto;
   min-height: 100vh;
@@ -38,6 +112,7 @@ body {
 html {
   overflow-x: hidden;
   width: 100%;
+  scroll-behavior: smooth;
 }
 
 @media (max-width: 1200px) {
