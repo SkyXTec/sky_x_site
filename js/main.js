@@ -61,7 +61,7 @@
   // ==============================================
   // CARROSSEL DE BLOG
   // ==============================================
-  function initBlogCarousel() {
+  window.initBlogCarousel = function initBlogCarousel() {
     const blogContents = document.querySelectorAll('.blog-content');
     const prevBtn = document.querySelector('.carousel-btn-prev');
     const nextBtn = document.querySelector('.carousel-btn-next');
@@ -188,25 +188,52 @@
   // NAVEGAÇÃO
   // ==============================================
   function initNavigation() {
-    const nav = document.querySelector('.nav');
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navMenu = document.querySelector('.nav');
-    const navLinks = document.querySelectorAll('.nav-list a');
+    const header = document.querySelector('.header-home'); // Header principal
+    const menuToggle = header ? header.querySelector('.menu-toggle') : null;
+    const navMenu = header ? header.querySelector('.nav') : null;
+    const navLinks = header ? header.querySelectorAll('.nav-list a') : [];
+    const navOverlay = header ? header.querySelector('.nav-overlay') : null;
     
+    // Função para travar/destravar o scroll
+    const toggleScroll = (disable) => {
+      document.body.style.overflow = disable ? 'hidden' : '';
+    };
+
     if (menuToggle && navMenu) {
       menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
+        const isActive = navMenu.classList.toggle('active');
         menuToggle.classList.toggle('active');
-        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+        
+        if (navOverlay) {
+          if (isActive) {
+            navOverlay.style.display = 'block';
+            // Pequeno delay para a transição de opacidade funcionar
+            setTimeout(() => navOverlay.classList.add('active'), 10);
+          } else {
+            navOverlay.classList.remove('active');
+            setTimeout(() => {
+              if (!navMenu.classList.contains('active')) navOverlay.style.display = 'none';
+            }, 300);
+          }
+        }
+        toggleScroll(isActive);
       });
 
       // Fechar menu ao clicar nos links e Scroll Suave
       navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-          // Fechar menu mobile
-          navMenu.classList.remove('active');
-          menuToggle.classList.remove('active');
-          document.body.style.overflow = 'auto';
+          // Fechar menu mobile (apenas se estiver ativo)
+          if (navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+            if (navOverlay) {
+              navOverlay.classList.remove('active');
+              setTimeout(() => {
+                if (!navMenu.classList.contains('active')) navOverlay.style.display = 'none';
+              }, 300);
+            }
+            toggleScroll(false);
+          }
 
           // Scroll Suave (GSAP)
           const href = link.getAttribute('href');
@@ -234,7 +261,7 @@
                     y: targetElement,
                     offsetY: 80 // Compensar header fixo
                   },
-                  ease: "power4.inOut" // Efeito ultra suave "Cinematic"
+                  ease: "power4.inOut"
                 });
               } else {
                 // Fallback original
@@ -254,26 +281,44 @@
 
       // Fechar menu ao clicar fora
       document.addEventListener('click', (e) => {
-        if (navMenu.classList.contains('active') && 
-            !navMenu.contains(e.target) && 
-            !menuToggle.contains(e.target)) {
+        const isClickOutside = !navMenu.contains(e.target) && !menuToggle.contains(e.target);
+        const isClickOnOverlay = navOverlay && e.target === navOverlay;
+
+        if (navMenu.classList.contains('active') && (isClickOutside || isClickOnOverlay)) {
           navMenu.classList.remove('active');
           menuToggle.classList.remove('active');
-          document.body.style.overflow = 'auto';
+          if (navOverlay) {
+            navOverlay.classList.remove('active');
+            setTimeout(() => {
+              if (!navMenu.classList.contains('active')) navOverlay.style.display = 'none';
+            }, 300);
+          }
+          toggleScroll(false);
+        }
+      });
+
+      // Resetar estado ao redimensionar a tela
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+          menuToggle.classList.remove('active');
+          if (navOverlay) {
+            navOverlay.classList.remove('active');
+            navOverlay.style.display = 'none';
+          }
+          toggleScroll(false);
         }
       });
     }
-    
-    if (nav) {
-      let lastScroll = 0;
+
+    // Efeito de scroll no header (ficar transparente/sólido)
+    if (navMenu) {
       window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        if (currentScroll > 100) {
-          nav.classList.add('scrolled');
+        if (window.scrollY > 50) {
+          navMenu.classList.add('scrolled');
         } else {
-          nav.classList.remove('scrolled');
+          navMenu.classList.remove('scrolled');
         }
-        lastScroll = currentScroll;
       });
     }
   }
@@ -343,14 +388,22 @@
   function initGSAPAnimations() {
     if (typeof gsap === 'undefined') {
       console.warn('GSAP não encontrado. As animações não funcionarão.');
+      // Fallback: mostrar elementos ocultos se plugin não carregar
+      document.querySelectorAll('.scroll-fade-up, .scroll-fade-down, .scroll-fade-in, .scroll-scale-in').forEach(el => {
+        el.style.opacity = 1;
+        el.style.visibility = 'visible';
+      });
       return;
     }
 
     gsap.registerPlugin(ScrollTrigger);
 
+    // Ajuste para Mobile - Reduzir carga
+    const isMobile = window.innerWidth < 768;
+    
     // Configuração global para suavidade
     const animConfig = {
-      duration: 1,
+      duration: isMobile ? 0.8 : 1, // Um pouco mais rápido no mobile
       ease: "power3.out"
     };
 
@@ -618,4 +671,37 @@
     console.log('✓ SKY X inicializado com sucesso');
   });
 
+  // ==============================================
+  // ENVIO DO FORMULÁRIO DE CONTATO
+  // ==============================================
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('formContato');
+    if (!form) return;
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = form.querySelector('.btn-enviar');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      const formData = new FormData(form);
+      try {
+        const res = await fetch('api/contato.php', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await res.json();
+        if (data.success) {
+          form.reset();
+          alert('Mensagem enviada com sucesso!');
+        } else {
+          alert(data.error || 'Erro ao enviar mensagem.');
+        }
+      } catch (err) {
+        alert('Erro ao enviar mensagem.');
+      }
+      btn.disabled = false;
+      btn.textContent = 'Enviar mensagem';
+    });
+  });
 })();

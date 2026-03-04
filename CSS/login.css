@@ -195,3 +195,41 @@ body {
     font-size: 36px;
   }
 }
+
+/* ── Mensagem de Erro ─────────────────────────────────── */
+.login-error {
+  display: none;
+  color: #dc2626;
+  padding: 0.65rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  text-align: center;
+  width: 100%;
+}
+
+.login-error.visible {
+  display: block;
+  animation: shake 0.35s ease;
+}
+
+/* ── Input com erro ───────────────────────────────────── */
+.input-error {
+  border-color: rgba(239, 68, 68, 0.6) !important;
+  background: rgba(239, 68, 68, 0.04) !important;
+}
+
+/* ── Botão loading ────────────────────────────────────── */
+.button.loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ── Animação shake ───────────────────────────────────── */
+@keyframes shake {
+  0%   { transform: translateX(0); }
+  20%  { transform: translateX(-6px); }
+  40%  { transform: translateX(6px); }
+  60%  { transform: translateX(-4px); }
+  80%  { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}

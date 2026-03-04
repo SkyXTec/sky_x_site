@@ -1,8 +1,13 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="no-js">
   <head>
+    <script>
+      // Remover classe no-js imediatamente se JS estiver habilitado
+      document.documentElement.classList.remove('no-js');
+      document.documentElement.classList.add('js-enabled');
+    </script>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>SKY x - Tecnologia e Inovação</title>
 
     <!-- SEO -->
@@ -52,11 +57,15 @@
          ======================================== -->
     <main>
       <section class="home">
-        <header class="header animate-fade-down">
+        <header class="header-home animate-fade-down">
+
           <!-- Logo -->
           <div class="logo">
             <img src="assets/images/logo.png" alt="SKY x Logo" />
           </div>
+
+          <!-- Overlay do menu mobile (movido para fora para não bloquear cliques) -->
+          <div class="nav-overlay"></div>
 
           <!-- Navigation -->
           <nav class="nav">
@@ -66,6 +75,7 @@
               <li><a href="#portfolio">portfólio</a></li>
               <li><a href="#blog">Blog</a></li>
               <li><a href="#contato">Contato</a></li>
+              <li><a href="login.html" class="btn-login">Login</a></li>
             </ul>
             <!-- Redes Sociais Mobile -->
             <div class="nav-social-icons">
@@ -84,7 +94,7 @@
             </div>
           </nav>
 
-          <!-- Social Icons Desktop -->
+          <!-- Social Icons Desktop + Botão Login -->
           <div class="social-icons">
             <a href="#" aria-label="Facebook">
               <img src="assets/icons/facebook.svg" alt="Facebook" loading="lazy" />
@@ -235,6 +245,33 @@
                 </p>
               </div>
             </div>
+
+            <div
+              class="service-card cybersecurity-card"
+              style="
+                background:
+                  linear-gradient(
+                    135deg,
+                    rgba(0, 0, 0, 0.3) 0%,
+                    rgba(0, 0, 0, 0.2) 100%
+                  ),
+                  url(&quot;assets/images/&quot;)
+                    center/cover no-repeat;
+              "
+            >
+              <div class="badge-container">
+                <span class="card-badge">Tecnologia</span>
+                <span class="card-badge">Segurança</span>
+              </div>
+              <div class="card-content">
+                <h3>Cyber Segurança</h3>
+                <p>
+                 
+                </p>
+              </div>
+            </div>
+
+
             <div
               class="service-card vr-card"
               style="
@@ -425,6 +462,61 @@
                 </p>
               </div>
             </div>
+            <div
+              class="service-card capsula-card"
+              style="
+                background:
+                  linear-gradient(
+                    135deg,
+                    rgba(163, 163, 163, 0.3) 0%,
+                    rgba(155, 155, 155, 0.2) 100%
+                  ),
+                  url(&quot;assets/images/capsula-vr.jpg&quot;) center/cover
+                    no-repeat;
+              "
+            >
+              <div class="badge-container">
+                <span class="card-badge">Imersão</span>
+                <span class="card-badge">Educação</span>
+                <span class="card-badge">Cortex Vr</span>
+              </div>
+              <div class="card-content">
+                <h3>Capsula imersiva</h3>
+                <p>
+                  Desenvolvemos ambientes e soluções imersivas voltadas para
+                  experiências profissionais e educacionais, unindo tecnologia,
+                  inovação e usabilidade. Nossas soluções são projetadas para
+                  capacitação, treinamentos, demonstrações técnicas e aplicações
+                  educacionais, proporcionando aprendizado prático, envolvente e
+                  de alto impacto.
+                </p>
+              </div>
+            </div>
+            <div
+              class="service-card ux-card"
+              style="
+                background:
+                  linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.3) 0%,
+                    rgba(255, 255, 255, 0.2) 100%
+                  ),
+                  url(&quot;assets/images/ux.jpg&quot;) center/cover no-repeat;
+              "
+            >
+              <div class="badge-container">
+                <span class="card-badge">Design</span>
+              </div>
+              <div class="card-content">
+                <h3>UI/UX Design</h3>
+                <p>
+                  Projetamos interfaces intuitivas e experiências memoráveis,
+                  focadas em usabilidade, acessibilidade e clareza. Cada solução
+                  é pensada para facilitar a interação do usuário, fortalecer a
+                  identidade do produto e gerar resultados reais.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -433,35 +525,32 @@
            PORTFÓLIO
            ======================================== -->
       <section class="portfolio" id="portfolio">
-        <div class="portfolio-content">
-          <div class="portfolio-info">
-            <div class="portfolio-text scroll-fade-up">
-              <h2 class="portfolio-title">Projetos</h2>
-              <p class="portfolio-descricao">
-                Desenvolvemos projetos inovadores que combinam tecnologia de
-                ponta com design excepcional, criando experiências digitais que
-                transformam negócios.
-              </p>
-            </div>
 
-            <div class="portfolio-destaque scroll-fade-up scroll-delay-200">
-              <div>
-                <h3>Veja nosso portfólio</h3>
-                <p>Conheça nossos projetos mais recentes</p>
-              </div>
-              <a href="portfolio-page.html" class="btn-portfolio">Ir para portfólio</a>
+        <div class="header-portfolio scroll-fade-down">
+          <h2>Projetos</h2>
+          <p>Desenvolvemos projetos inovadores que combinam tecnologia de ponta<br>com design excepcional, criando experiências digitais que transformam negócios.</p>
+        </div>
+
+        <div class="projetos-grid scroll-fade-up scroll-delay-200">
+          <a href="portfolio-page.html" class="projeto-card projeto-card-1">
+            <img src="assets/images/cortex-img.png" alt="Cortex">
+            <div class="projeto-card-overlay">
+              <span class="projeto-label">Projeto em destaque</span>
+              <h3 class="projeto-nome">Cortex</h3>
             </div>
+          </a>
+        </div>
+
+        <div class="cta-portfolio scroll-fade-up scroll-delay-300">
+          <div class="text-cta">
+            <h3>Veja nosso portfólio completo</h3>
+            <p>Conheça todos os nossos projetos mais recentes e descubra como<br>podemos transformar sua ideia em realidade.</p>
           </div>
-
-          <div class="projetos-grid">
-            <div class="projeto-card projeto-card-1">
-              <img src="assets/images/cortex-img.png" alt="">
-            </div>
-            <div class="projeto-card projeto-card-2">
-              <img src="assets/images/neuro-verso-img.png" alt="">
-            </div>
+          <div class="botoes-cta">
+            <a href="portfolio-page.html" class="btn-portfolio cta-button-2">Ir para portfólio</a>
           </div>
         </div>
+
       </section>
 
       <!-- ========================================
@@ -475,6 +564,9 @@
           </p>
         </div>
 
+        <!-- Indicadores (dinâmico) -->
+        <div class="carousel-indicators"></div>
+
         <!-- Carrossel de Notícias -->
         <div class="blog-carousel-container scroll-fade-up">
           <!-- Botão Anterior -->
@@ -484,106 +576,8 @@
             </svg>
           </button>
 
-          <!-- Container do Carrossel -->
-          <div class="blog-carousel">
-            <!-- Notícia 1 -->
-            <div class="blog-content active" data-noticia="1">
-              <div class="noticia-destaque">
-                <img
-                  src="assets/images/guarda-municipal-treinament.jpg"
-                  alt="Treinamento da Guarda Municipal em simulador"
-                  class="noticia-imagem"
-                  loading="lazy"
-                />
-              </div>
-
-              <div class="noticia-info">
-                <div class="noticia-cabecalho">
-                  <h3 class="noticia-titulo">
-                    Prefeitura investe na capacitação da Guarda Municipal com
-                    treinamento em simulador
-                  </h3>
-                  <span class="badge-destaque">Em destaque</span>
-                </div>
-
-                <p class="noticia-descricao">
-                  Guardas Municipais de Macaé participam de instrução por meio do
-                  simulador de tomada de decisão de uso da arma. A ação acontece na
-                  Escola do Servidor e faz parte do fluxo contínuo de treinamento,
-                  com apoio da SkyX na disponibilização da tecnologia em parceria
-                  com a Secretaria de Tecnologia de Macaé.
-                </p>
-                <div class="noticia-acoes">
-                  <button class="btn-noticia" data-modal="1">
-                    Veja a notícia completa
-                  </button>
-                  <a href="blog.html" class="btn-noticias-secundario">Outras notícias</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Notícia 2 -->
-            <div class="blog-content" data-noticia="2">
-              <div class="noticia-destaque">
-                <img
-                  src="assets/images/noticia-crios.jpg"
-                  alt="Parceria CRIOS-UFRJ e SKY X"
-                  class="noticia-imagem"
-                  loading="lazy"
-                />
-              </div>
-
-              <div class="noticia-info">
-                <div class="noticia-cabecalho">
-                  <h3 class="noticia-titulo">
-                    CRIOS-UFRJ e SKY X se unem para revolucionar ensino com Realidade Virtual
-                  </h3>
-                  <span class="badge-destaque">Em destaque</span>
-                </div>
-
-                <p class="noticia-descricao">
-                  O CRIOS-UFRJ e a startup SKY X Tecnologia iniciam parceria estratégica para desenvolver soluções educacionais com Realidade Virtual e Aumentada. A colaboração inclui transferência de tecnologia de software de espelhamento e controle de dispositivos imersivos, sem custos para a universidade, beneficiando cursos de Engenharia, Medicina e Ciências da Saúde.
-                </p>
-                <div class="noticia-acoes">
-                  <button class="btn-noticia" data-modal="2">
-                    Veja a notícia completa
-                  </button>
-                  <a href="blog.html" class="btn-noticias-secundario">Outras notícias</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Notícia 3 -->
-            <div class="blog-content" data-noticia="3">
-              <div class="noticia-destaque">
-                <img
-                  src="assets/images/blog/featured-3.jpg"
-                  alt="Inovação Tecnológica"
-                  class="noticia-imagem"
-                  loading="lazy"
-                />
-              </div>
-
-              <div class="noticia-info">
-                <div class="noticia-cabecalho">
-                  <h3 class="noticia-titulo">
-                    SkyX anuncia parceria estratégica para desenvolvimento de novas soluções
-                  </h3>
-                  <span class="badge-destaque">Em destaque</span>
-                </div>
-
-                <p class="noticia-descricao">
-                  Em uma iniciativa que promete revolucionar o mercado de tecnologia imersiva, a SkyX anuncia nova parceria focada no desenvolvimento de soluções inovadoras. O projeto visa integrar inteligência artificial com realidade virtual para criar experiências ainda mais personalizadas e eficientes.
-                </p>
-                <div class="noticia-acoes">
-                  <button class="btn-noticia" data-modal="3">
-                    Veja a notícia completa
-                  </button>
-                  <a href="blog.html" class="btn-noticias-secundario">Outras notícias</a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <!-- Container do Carrossel (dinâmico) -->
+          <div class="blog-carousel"></div>
 
           <!-- Botão Próximo -->
           <button class="carousel-btn carousel-btn-next" aria-label="Próxima notícia">
@@ -592,184 +586,11 @@
             </svg>
           </button>
         </div>
-
-        <!-- Indicadores -->
-        <div class="carousel-indicators">
-          <button class="indicator active" data-slide="1" aria-label="Ir para notícia 1"></button>
-          <button class="indicator" data-slide="2" aria-label="Ir para notícia 2"></button>
-          <button class="indicator" data-slide="3" aria-label="Ir para notícia 3"></button>
-        </div>
       </section>
 
-      <!-- Modal Notícia 1 -->
-      <div id="noticiaModal1" class="modal">
-        <div class="modal-content">
-          <span class="modal-close">&times;</span>
-          <div class="modal-header">
-            <h2>
-              Prefeitura investe na capacitação da Guarda Municipal com
-              treinamento em simulador de tomada de decisões
-            </h2>
-            <p class="modal-data">
-              29/01/2026 15:24:00 - Jornalista: Carla Cardoso
-            </p>
-          </div>
-          <div class="modal-body">
-            <p>
-              Guardas Municipais de Macaé participam, nesta quinta-feira (29),
-              de instrução por meio do simulador de tomada de decisão de uso da
-              arma. A ação, que está sendo realizada pela segunda vez, pela
-              Ordem Pública do município, acontece na Escola do Servidor e faz
-              parte do fluxo contínuo de treinamento e aprimoramento dos
-              profissionais.
-            </p>
-
-            <p>
-              A atividade integra o processo permanente de capacitação e
-              valorização profissional da Guarda, fortalecendo a segurança da
-              população e a atuação qualificada dos agentes.
-            </p>
-
-            <p>
-              O treinamento conta ainda com o acompanhamento de psicóloga, que
-              realiza a observação técnica dos aspectos emocionais, cognitivos e
-              comportamentais envolvidos na tomada de decisão, avaliando reações
-              ao estresse, capacidade de julgamento, controle emocional e
-              aderência aos princípios da legalidade, proporcionalidade e
-              preservação da vida.
-            </p>
-
-            <p>
-              Durante o curso, é possível compreender que a presença, o tom de
-              voz e utilização de outros métodos na abordagem são questões
-              importantes de controle.
-            </p>
-
-            <blockquote>
-              <p>
-                "O objetivo principal é qualificar a atuação dos guardas
-                municipais em situações operacionais, com foco na correta
-                avaliação de cenários, no controle emocional e na tomada de
-                decisão responsável diante de situações de risco"
-              </p>
-              <cite>- Tales Borges, Secretário de Segurança</cite>
-            </blockquote>
-
-            <p>
-              A ferramenta permite que os agentes sejam submetidos a situações
-              simuladas semelhantes às ocorrências do cotidiano, exigindo
-              leitura rápida do ambiente, identificação de ameaças, proteção de
-              terceiros e escolha da resposta mais adequada, sempre observando
-              os princípios da legalidade, proporcionalidade e preservação da
-              vida.
-            </p>
-
-            <p>
-              O secretário acrescenta que, durante a instrução, são trabalhados
-              aspectos como consciência situacional, comunicação verbal,
-              posicionamento, disciplina no uso da arma e aplicação dos
-              protocolos operacionais da Guarda Municipal, reforçando a atuação
-              técnica e responsável do efetivo.
-            </p>
-
-            <a
-              href="https://macae.rj.gov.br/noticias/leitura/noticia/prefeitura-investe-na-capacitacao-da-guarda-municipal-com-treinamento-em-simulador-de-tomada-de-decisoes"
-              target="_blank"
-              class="fonte-link"
-              >Fonte: Prefeitura de Macaé</a
-            >
-          </div>
-        </div>
-      </div>
-
-      <!-- Modal Notícia 2 -->
-      <div id="noticiaModal2" class="modal">
-        <div class="modal-content">
-          <span class="modal-close">&times;</span>
-          <div class="modal-header">
-            <h2>
-              Solução educacional com Realidade Virtual e Aumentada é potencializada com interação entre o CRIOS-UFRJ e a Startup SKY X
-            </h2>
-            <p class="modal-data">
-              11/02/2026 - Fonte: CRIOS-UFRJ
-            </p>
-          </div>
-          <div class="modal-body">
-            <p>
-              O CRIOS-UFRJ e a startup SKY X Tecnologia têm desafios em comum: desenvolver soluções inovadoras com Realidade Virtual e Aumentada (Realidade Mista) para uso educacional. Nos últimos meses foram iniciadas conversas sobre oportunidades de colaboração, com foco nas necessidades pedagógicas e operacionais do CRIOS Tech Lab, especialmente no uso de múltiplos óculos de RV em ambientes acadêmicos.
-            </p>
-
-            <p>
-              A SKY X está em fase final de desenvolvimento de um software de espelhamento e controle centralizado de dispositivos imersivos, que permite maior controle, acompanhamento e padronização de experiências imersivas em sala de aula e laboratórios.
-            </p>
-
-            <p>
-              Visando o desenvolvimento de testes em escala, o aprimoramento de soluções e a melhoria na qualidade de ensino da universidade, a startup pretende fazer a Transferência de Tecnologia do novo software para a UFRJ, processo que deve passar pela análise da INOVA UFRJ para efetivação desta cooperação que será sem custos para a Universidade.
-            </p>
-
-            <blockquote>
-              <p>
-                "A incorporação dessa tecnologia pode fortalecer diretamente cursos como Engenharia, Química, Medicina e Ciências da Saúde na UFRJ-Macaé."
-              </p>
-              <cite>- Equipe CRIOS Tech Lab</cite>
-            </blockquote>
-
-            <p>
-              Ao compartilhar conhecimento, tecnologia e soluções de impacto para o ambiente acadêmico, a SKY X estará promovendo avanços reais na formação de estudantes e pesquisadores.
-            </p>
-
-            <p>
-              O CRIOS Tech Lab segue comprometido em avaliar soluções locais inovadoras que possam fortalecer o uso educacional da Realidade Virtual, sempre com responsabilidade institucional, transparência e foco na excelência acadêmica.
-            </p>
-
-            <blockquote>
-              <p>
-                "A SKY X Tecnologia agradece ao CRIOS-UFRJ pela confiança e pela oportunidade de construir essa colaboração estratégica. Nosso compromisso é desenvolver e potencializar soluções em Realidade Virtual e Aumentada que ampliem o acesso ao conhecimento, elevem a qualidade do ensino e gerem impacto real na formação acadêmica."
-              </p>
-              <cite>- SKY X Tecnologia</cite>
-            </blockquote>
-
-            <p>
-              Seguimos empenhados em usar a tecnologia como ferramenta de transformação educacional, inovação e futuro. 🚀📚
-            </p>
-
-            <a
-              href="https://www.instagram.com/p/DUoJJlej6tL/"
-              target="_blank"
-              class="fonte-link"
-              >Fonte: Instagram @criosufrj</a
-            >
-          </div>
-        </div>
-      </div>
-
-      <!-- Modal Notícia 3 -->
-      <div id="noticiaModal3" class="modal">
-        <div class="modal-content">
-          <span class="modal-close">&times;</span>
-          <div class="modal-header">
-            <h2>
-              SKY X anuncia parceria estratégica para desenvolvimento de novas soluções
-            </h2>
-            <p class="modal-data">
-              10/02/2026
-            </p>
-          </div>
-          <div class="modal-body">
-            <p>
-              Em uma iniciativa que promete revolucionar o mercado de tecnologia imersiva, a SkyX anuncia nova parceria focada no desenvolvimento de soluções inovadoras. O projeto visa integrar inteligência artificial com realidade virtual para criar experiências ainda mais personalizadas e eficientes.
-            </p>
-
-            <p>
-              A nova solução permitirá que empresas e instituições de ensino tenham acesso a plataformas de treinamento e educação completamente customizáveis, adaptando-se às necessidades específicas de cada setor e público-alvo.
-            </p>
-
-            <p>
-              Com esta parceria, a SKY X reforça seu compromisso com a inovação tecnológica e o desenvolvimento de soluções que fazem a diferença no dia a dia de seus clientes, sempre buscando excelência e resultados tangíveis.
-            </p>
-          </div>
-        </div>
-      </div>
+      <!-- Modais de notícias serão gerados dinamicamente pelo index-noticias.js -->
+  <!-- Script para carregar notícias com destaque -->
+  <script src="js/index-noticias.js"></script>
 
       <!-- Modal Sobre a SKY X -->
       <div id="sobreModal" class="modal">
@@ -861,22 +682,27 @@
 
         <div class="header-parceiros scroll-fade-down">
           <h2>Parceiros</h2>
-          <p>Tecnolofia e inovação ao lado de quem transforma<br>ideias em soluções reais.</p>
+          <p>Tecnologia e inovação ao lado de quem transforma<br>ideias em soluções reais.</p>
         </div>
 
         <div class="parceiro-cards" id="parceiro-cards">
           <div class="parceiro-card scroll-scale-in">
-            <img src="assets/images/logo-crios.png" alt="Parceiro 1" loading="lazy" />
+            <img src="assets/images/logo-crios.png" alt="Logo Crios UFRJ" loading="lazy" />
           </div>
           <div class="parceiro-card scroll-scale-in scroll-delay-200">
-            <img src="assets/images/logo-novatech.png" alt="Parceiro 2" loading="lazy" />
+            <img src="assets/images/logo-novatech.png" alt="Logo Novatech" loading="lazy" />
           </div>
-          <div class="parceiro-card scroll-scale-in scroll-delay-400">
-            <img src="" alt="Parceiro" loading="lazy" />
+          <div class="parceiro-card scroll-scale-in scroll-delay-600">
+            <img src="assets/images/Logo-nakivo.png" alt="Logo Nakivo" loading="lazy" />
           </div>
+          <div class="parceiro-card scroll-scale-in scroll-delay-600">
+            <img src="assets/images/logo-brtech.png" alt="Logo Brtech" loading="lazy" />
+          </div>
+          <!--     
           <div class="parceiro-card scroll-scale-in scroll-delay-500">
-            <img src="" alt="Parceiro" loading="lazy" />
-          </div>
+            <img src="assets/images/logo-empresa.png" alt="Parceiro" loading="lazy" />
+          </div> 
+          --> 
         </div>
 
         <div class="cta-parceiros scroll-fade-up scroll-delay-300">
@@ -923,7 +749,7 @@
                 </div>
                 <div class="card-text">
                   <h3>Email</h3>
-                  <p>contato@skyx.com.br</p>
+                  <p>contato@skyxtecnologia.com.br</p>
                 </div>
                 <svg
                   class="card-arrow"
@@ -955,40 +781,7 @@
                 </div>
                 <div class="card-text">
                   <h3>Localização</h3>
-                  <p>Macaé, RJ - Brasil</p>
-                </div>
-                <svg
-                  class="card-arrow"
-                  width="22"
-                  height="30"
-                  viewBox="0 0 22 30"
-                  fill="none"
-                >
-                  <path
-                    d="M2 2L20 15L2 28"
-                    stroke="white"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </a>
-
-              <a
-                href="https://wa.me/5522999999999"
-                class="contato-card"
-                target="_blank"
-              >
-                <div class="card-icon">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M17.472 14.382C17.262 14.277 16.212 13.762 16.022 13.697C15.832 13.632 15.692 13.597 15.552 13.807C15.412 14.017 14.992 14.497 14.872 14.637C14.752 14.777 14.632 14.792 14.422 14.687C14.212 14.582 13.562 14.367 12.792 13.682C12.192 13.147 11.792 12.487 11.672 12.277C11.552 12.067 11.662 11.952 11.762 11.847C11.852 11.757 11.972 11.607 12.072 11.487C12.172 11.367 12.212 11.277 12.272 11.137C12.332 10.997 12.302 10.877 12.252 10.772C12.202 10.667 11.802 9.617 11.632 9.197C11.462 8.797 11.292 8.847 11.162 8.842C11.042 8.837 10.902 8.837 10.762 8.837C10.622 8.837 10.392 8.887 10.202 9.097C10.012 9.307 9.462 9.822 9.462 10.872C9.462 11.922 10.222 12.937 10.322 13.077C10.422 13.217 11.792 15.367 13.912 16.297C14.452 16.537 14.872 16.687 15.202 16.797C15.742 16.967 16.232 16.942 16.622 16.887C17.052 16.827 17.872 16.372 18.042 15.867C18.212 15.362 18.212 14.932 18.162 14.842C18.112 14.752 17.972 14.702 17.762 14.597L17.472 14.382ZM12.052 21.787H12.047C10.317 21.787 8.617 21.297 7.152 20.377L6.812 20.177L3.542 21.037L4.422 17.867L4.202 17.512C3.192 15.992 2.652 14.227 2.652 12.412C2.652 7.492 6.632 3.512 11.552 3.512C13.952 3.512 16.192 4.397 17.912 6.122C19.632 7.847 20.512 10.087 20.512 12.487C20.512 17.407 16.532 21.387 11.612 21.387L12.052 21.787Z"
-                      fill="#48baf3"
-                    />
-                  </svg>
-                </div>
-                <div class="card-text">
-                  <h3>WhatsApp</h3>
-                  <p>+55 (22) 9999-9999</p>
+                  <p>Rua Visconde de Pirajá, 414 Sala 718 Ipanema - Rio de Janeiro</p>
                 </div>
                 <svg
                   class="card-arrow"
@@ -1079,9 +872,7 @@
             </div>
 
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-              enim explicabo velit saepe ipsam tempore excepturi voluptatem nemo
-              aperiam neque eius laborum cum, unde accusa
+              SKY X Tecnologia: Soluções inovadoras em desenvolvimento web, automação e integração de sistemas. Nosso compromisso é transformar ideias em resultados, com qualidade, transparência e foco no sucesso dos nossos clientes.
             </p>
 
             <div class="social-icons-footer">

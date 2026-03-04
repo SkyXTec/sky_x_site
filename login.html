@@ -19,13 +19,17 @@
         </div>
 
         <form id="loginForm" class="form">
+          <!-- Mensagem de erro -->
+          
+
           <div class="input-wrapper">
             <input
               type="text"
               name="username"
               id="username"
-              placeholder="Usuario"
+              placeholder="Usuário"
               class="input"
+              autocomplete="username"
               required
             />
           </div>
@@ -37,9 +41,12 @@
               id="password"
               placeholder="Senha"
               class="input input-password"
+              autocomplete="current-password"
               required
             />
           </div>
+
+          <div id="loginError" class="login-error"></div>
 
           <button type="submit" class="button" id="loginBtn">Entrar</button>
 

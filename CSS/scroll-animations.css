@@ -4,6 +4,7 @@
 /* 
    Mantemos apenas a opacidade zero inicial para evitar FOUC (Flash of Unstyled Content).
    O GSAP assumirá o controle dessas propriedades.
+   IMPORTANTE: Media query adicionada para mobile caso o JS falhe ou seja lento.
 */
 
 .scroll-fade-up,
@@ -12,4 +13,26 @@
 .scroll-scale-in {
     opacity: 0;
     visibility: hidden;
+}
+
+/* Fallback para quando o JS estiver desabilitado ou falhar */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-fade-up,
+  .scroll-fade-down,
+  .scroll-fade-in,
+  .scroll-scale-in {
+      opacity: 1 !important;
+      visibility: visible !important;
+      animation: none !important;
+      transition: none !important;
+  }
+}
+
+/* Forçar visibilidade em mobile se o site carregar lento */
+html.no-js .scroll-fade-up,
+html.no-js .scroll-fade-down,
+html.no-js .scroll-fade-in,
+html.no-js .scroll-scale-in {
+    opacity: 1 !important;
+    visibility: visible !important;
 }

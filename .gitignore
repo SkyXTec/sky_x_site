@@ -1,0 +1,72 @@
+# Arquivos de configuração sensíveis
+api/config.php
+api/db.php
+
+# Arquivos de sistema operacional
+Thumbs.db
+Desktop.ini
+.DS_Store
+._*
+
+# Arquivos de IDEs e editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.classpath
+
+# Dependências
+node_modules/
+vendor/
+bower_components/
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+*.temp
+error_log
+debug.log
+
+# Arquivos de backup
+*.bak
+*.backup
+*~
+
+# Arquivos de cache
+.cache/
+*.cache
+
+# Uploads de imagens (se forem muito grandes)
+# assets/images/uploads/
+# Descomente a linha acima se houver pasta de uploads
+
+# Arquivos PHP temporários
+*.php~
+.phpintel/
+
+# Arquivos de sessão
+sessions/
+
+# Variáveis de ambiente
+.env
+.env.local
+.env.*.local
+
+# Arquivos sensíveis do projeto
+util/reset-password.php
+util/gera_hash.php
+
+# Pastas de documentação e utilitários
+md/
+util/
+
+# Arquivos de build e distribuição
+dist/
+build/
+
+# Arquivos de testes
+coverage/
+.nyc_output/

@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SKY X Dashboard</title>
+    <!-- Base styles for colors and fonts -->
+    <link rel="stylesheet" href="css/base.css" />
+    <!-- Dashboard specific styles -->
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <!-- Auth Guard: deve ser o primeiro script carregado -->
+    <script src="js/auth.js"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Roboto+Condensed:wght@200;300;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <aside class="sidebar">
+        <!-- Sidebar content -->
+        <div class="logo">
+          <img src="assets/images/logo.png" alt="SKY X Logo" />
+        </div>
+        <nav class="sidebar-nav">
+          <ul class="nav-links">
+            <li class="active">
+              <a class="nav-item" href="#" data-view="overview" data-label="Overview">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+                  <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+                </svg>
+                Overview
+              </a>
+            </li>
+            <li>
+              <a class="nav-item" href="#" data-view="noticias" data-label="Notícias">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 6h16M4 10h16M4 14h10M4 18h7"/>
+                </svg>
+                Notícias
+              </a>
+            </li>
+            <li>
+              <a class="nav-item" href="#" data-view="mensagens" data-label="Mensagens">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+                Mensagens
+              </a>
+            </li>
+            <li>
+              <a class="nav-item" href="#" data-view="projetos" data-label="Projetos">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                  <polyline points="2 17 12 22 22 17"/>
+                  <polyline points="2 12 12 17 22 12"/>
+                </svg>
+                Projetos
+              </a>
+            </li>
+            <li>
+              <a class="nav-item" href="#" data-view="configuracoes" data-label="Configurações">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                </svg>
+                Configurações
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="user-profile">
+          <div class="user-avatar">
+            <!-- Avatar Placeholder or Initials -->
+            <span>LS</span>
+          </div>
+          <div class="user-info">
+            <span class="user-name">Lucas SkyX</span>
+            <span class="user-role">Admin</span>
+          </div>
+          <button class="user-logout" aria-label="Sair">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 17L21 12L16 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 12H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+
+        <!-- Header principal -->
+        <header class="dashboard-header">
+          <div class="header-left">
+            <h1 class="page-title" id="pageTitle">Overview</h1>
+            <p class="page-subtitle">Bem-vindo de volta, <span class="user-name">Lucas</span></p>
+          </div>
+          <div class="header-right">
+            <span class="current-date" id="currentDate"></span>
+          </div>
+        </header>
+
+        <div class="dash-view active" data-view="overview">
+
+        <!-- Cards de Métricas Rápidas -->
+        <div class="metrics-row">
+          <div class="metric-card">
+            <span class="metric-label">Notícias Publicadas</span>
+            <span class="metric-value">12</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Mensagens Novas</span>
+            <span class="metric-value">3</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Projetos Ativos</span>
+            <span class="metric-value">5</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Visitantes (mês)</span>
+            <span class="metric-value">1.4k</span>
+          </div>
+        </div>
+
+        <!-- Últimas Notícias -->
+        <section class="dashboard-section last-news">
+          <div class="section-header">
+            <h2 class="section-title">Últimas notícias postadas</h2>
+            <a class="section-link nav-item" href="#" data-view="noticias" data-label="Notícias">Ver todas</a>
+          </div>
+          <div class="news-grid">
+            <div class="news-card">
+              <div class="news-card-img"></div>
+              <div class="news-card-body">
+                <span class="news-badge">Publicado</span>
+                <h3>Guarda Municipal recebe treinamento em simulador</h3>
+                <span class="news-date">29 Jan, 2026</span>
+              </div>
+            </div>
+            <div class="news-card">
+              <div class="news-card-img"></div>
+              <div class="news-card-body">
+                <span class="news-badge">Publicado</span>
+                <h3>CRIOS-UFRJ e SKY X firmam parceria em Realidade Virtual</h3>
+                <span class="news-date">15 Jan, 2026</span>
+              </div>
+            </div>
+            <div class="news-card">
+              <div class="news-card-img"></div>
+              <div class="news-card-body">
+                <span class="news-badge draft">Rascunho</span>
+                <h3>SkyX anuncia novas soluções para o mercado educacional</h3>
+                <span class="news-date">02 Fev, 2026</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Últimas Mensagens -->
+        <section class="dashboard-section last-messages">
+          <div class="section-header">
+            <h2 class="section-title">Últimas mensagens recebidas</h2>
+            <a class="section-link nav-item" href="#" data-view="mensagens" data-label="Mensagens">Ver todas</a>
+          </div>
+          <div class="messages-grid">
+            <div class="message-card unread">
+              <div class="message-header">
+                <div class="message-avatar">CX</div>
+                <div class="message-meta">
+                  <span class="message-sender">Cliente X</span>
+                  <span class="message-time">há 2h</span>
+                </div>
+                <span class="unread-dot"></span>
+              </div>
+              <h3 class="message-subject">Projeto VR</h3>
+              <p class="message-preview">Gostaria de saber mais sobre os projetos de realidade aumentada disponíveis.</p>
+            </div>
+            <div class="message-card unread">
+              <div class="message-header">
+                <div class="message-avatar">SP</div>
+                <div class="message-meta">
+                  <span class="message-sender">Suporte</span>
+                  <span class="message-time">há 5h</span>
+                </div>
+                <span class="unread-dot"></span>
+              </div>
+              <h3 class="message-subject">Dúvida técnica</h3>
+              <p class="message-preview">Estamos com um problema na visualização do dashboard no tablet.</p>
+            </div>
+            <div class="message-card">
+              <div class="message-header">
+                <div class="message-avatar">AB</div>
+                <div class="message-meta">
+                  <span class="message-sender">Ana Beatriz</span>
+                  <span class="message-time">ontem</span>
+                </div>
+              </div>
+              <h3 class="message-subject">Orçamento para app mobile</h3>
+              <p class="message-preview">Olá, preciso de um orçamento para desenvolvimento de aplicativo mobile para minha empresa.</p>
+            </div>
+          </div>
+        </section>
+
+          </section>
+
+          <!-- Últimos Projetos -->
+          <section class="dashboard-section">
+            <div class="section-header">
+              <h2 class="section-title">Últimos projetos adicionados</h2>
+              <a class="section-link nav-item" href="#" data-view="projetos" data-label="Projetos">Ver todos</a>
+            </div>
+            <div class="projects-grid">
+              <div class="project-card">
+                <div class="project-card-thumb"></div>
+                <div class="project-card-body">
+                  <div class="project-card-top">
+                    <span class="project-badge project-badge--active">Ativo</span>
+                    <span class="project-category">Simulação</span>
+                  </div>
+                  <h3>Simulador para Guarda Municipal</h3>
+                  <span class="project-date">Adicionado em 20 jan, 2026</span>
+                </div>
+              </div>
+              <div class="project-card">
+                <div class="project-card-thumb"></div>
+                <div class="project-card-body">
+                  <div class="project-card-top">
+                    <span class="project-badge project-badge--active">Ativo</span>
+                    <span class="project-category">Realidade Virtual</span>
+                  </div>
+                  <h3>Parceria CRIOS-UFRJ — Ambiente VR</h3>
+                  <span class="project-date">Adicionado em 10 jan, 2026</span>
+                </div>
+              </div>
+              <div class="project-card">
+                <div class="project-card-thumb"></div>
+                <div class="project-card-body">
+                  <div class="project-card-top">
+                    <span class="project-badge project-badge--dev">Em dev.</span>
+                    <span class="project-category">Educação</span>
+                  </div>
+                  <h3>Plataforma Educacional Imersiva</h3>
+                  <span class="project-date">Adicionado em 05 fev, 2026</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div><!-- /dash-view overview -->
+
+        <!-- View: Notícias -->
+        <div class="dash-view" data-view="noticias">
+          <div class="noticias-header">
+            <h2 class="noticias-title">Notícias</h2>
+            <button class="noticias-btn-nova" id="btnNovaNoticia">Nova Notícia</button>
+          </div>
+          <div class="noticias-list" id="noticiasList">
+            <!-- Cards de notícias serão renderizados aqui via JS -->
+          </div>
+
+          <!-- Modal de criar/editar notícia -->
+          <div class="noticia-modal" id="noticiaModal" style="display:none;">
+            <div class="noticia-modal-content">
+              <div class="noticia-modal-header">
+                <span class="noticia-modal-title" id="noticiaModalTitle">Nova Notícia</span>
+                <button class="noticia-modal-close" id="closeNoticiaModal" aria-label="Fechar">&times;</button>
+              </div>
+              <form class="noticia-modal-form" id="noticiaForm">
+                <div class="noticia-modal-grid">
+                  <div class="noticia-modal-col1">
+                    <label for="noticiaTitulo">Título</label>
+                    <input type="text" id="noticiaTitulo" name="titulo" required maxlength="180" />
+
+                    <label for="noticiaResumo">Resumo</label>
+                    <textarea id="noticiaResumo" name="resumo" maxlength="240" placeholder="Resumo breve da notícia (até 240 caracteres)"></textarea>
+
+                    <label for="noticiaSlug">Slug (URL)</label>
+                    <input type="text" id="noticiaSlug" name="slug" required maxlength="180" />
+
+                    <label for="noticiaTags">Tags</label>
+                    <input type="text" id="noticiaTagsInput" placeholder="Digite e pressione Enter" />
+                    <div class="noticia-modal-tags" id="noticiaTags"></div>
+
+                    <label for="noticiaDestaque">Destaque</label>
+                    <select id="noticiaDestaque" name="destaque">
+                      <option value="none">Nenhum destaque</option>
+                      <option value="destaque1">Destaque 1 (principal)</option>
+                      <option value="destaque2">Destaque 2</option>
+                      <option value="destaque3">Destaque 3</option>
+                    </select>
+                  </div>
+                  <div class="noticia-modal-col2">
+                    <input type="file" id="noticiaImagem" accept="image/*" />
+                    <img class="noticia-modal-img-preview" id="noticiaImgPreview" style="display:none;" />
+                  </div>
+                </div>
+
+                <label for="noticiaConteudo" style="margin-top:2rem;">Conteúdo (HTML permitido)</label>
+                <div class="noticia-toolbar" id="noticiaToolbar">
+                  <button type="button" data-tag="h2" title="Título H2"><b>H2</b></button>
+                  <button type="button" data-tag="h3" title="Título H3"><b>H3</b></button>
+                  <button type="button" data-tag="p" title="Parágrafo">P</button>
+                  <button type="button" data-tag="strong" title="Negrito"><b>B</b></button>
+                  <button type="button" data-tag="ul" title="Lista"><b>UL</b></button>
+                  <button type="button" data-tag="li" title="Item Lista">LI</button>
+                  <button type="button" data-tag="a" title="Link">🔗</button>
+                  <button type="button" data-tag="img" title="Imagem">🖼️</button>
+                  <button type="button" data-tag="blockquote" title="Citação">❝</button>
+                </div>
+                <textarea id="noticiaConteudo" name="conteudo" required style="margin-top:0.5rem;"></textarea>
+
+                <div class="noticia-modal-actions">
+                  <button type="button" class="noticia-modal-btn-cancelar" id="cancelarNoticiaModal">Cancelar</button>
+                  <button type="submit" class="noticia-modal-btn-salvar">Salvar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- View: Mensagens -->
+        <div class="dash-view" data-view="mensagens">
+          <section class="contact-messages">
+            <div class="tabs">
+                <button class="tab active" data-tab="unread">Não lidas</button>
+                <button class="tab" data-tab="answered">Respondidas</button>
+                <button class="tab" data-tab="archived">Arquivadas</button>
+            </div>
+            <div class="messages-list" id="messages-list">
+                <!-- Mensagens serão carregadas dinamicamente -->
+            </div>
+          </section>
+        </div>
+
+        <!-- View: Projetos -->
+        <div class="dash-view" data-view="projetos">
+          <div class="view-placeholder">
+            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            <p class="placeholder-title">Gerenciamento de Projetos</p>
+            <span class="placeholder-sub">Em construção</span>
+          </div>
+        </div>
+
+        <!-- View: Configurações -->
+        <div class="dash-view" data-view="configuracoes">
+          <div class="view-placeholder">
+            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <p class="placeholder-title">Configurações</p>
+            <span class="placeholder-sub">Em construção</span>
+          </div>
+        </div>
+
+        <!-- Estrutura de exemplo para mensagem (pode ser duplicada via JS) -->
+        <div class="message-card" id="message-template" style="display:none;">
+          <div class="msg-header">
+            <div class="msg-info">
+              <span class="msg-name">NOME</span>
+              <span class="msg-email">EMAIL</span>
+            </div>
+            <span class="msg-date">DATA</span>
+          </div>
+          <div class="msg-subject">ASSUNTO</div>
+          <div class="msg-body">MENSAGEM</div>
+          <div class="msg-actions">
+            <button class="btn-answered">Marcar como respondida</button>
+            <button class="btn-archived">Arquivar</button>
+            <button class="btn-unarchive" style="display:none;">Desarquivar</button>
+            <button class="btn-mark-unread" style="display:none;">Marcar como não lida</button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+    <link rel="stylesheet" href="css/dashboard-noticias.css" />
+    <script src="js/dashboard.js"></script>
+    <script src="js/dashboard-noticias.js"></script>
+  </body>
+</html>
