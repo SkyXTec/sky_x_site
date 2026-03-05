@@ -53,6 +53,17 @@
               </a>
             </li>
             <li>
+              <a class="nav-item" href="#" data-view="parceiros" data-label="Parceiros">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3z"/>
+                  <path d="M8 11c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3z"/>
+                  <path d="M8 13c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                  <path d="M16 13c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2c0-2.66-5.33-4-7-4z"/>
+                </svg>
+                Parceiros
+              </a>
+            </li>
+            <li>
               <a class="nav-item" href="#" data-view="projetos" data-label="Projetos">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                   <polygon points="12 2 2 7 12 12 22 7 12 2"/>
@@ -111,7 +122,7 @@
         <div class="metrics-row">
           <div class="metric-card">
             <span class="metric-label">Notícias Publicadas</span>
-            <span class="metric-value">12</span>
+            <span class="metric-value" id="metricNoticias">—</span>
           </div>
           <div class="metric-card">
             <span class="metric-label">Mensagens Novas</span>
@@ -133,31 +144,8 @@
             <h2 class="section-title">Últimas notícias postadas</h2>
             <a class="section-link nav-item" href="#" data-view="noticias" data-label="Notícias">Ver todas</a>
           </div>
-          <div class="news-grid">
-            <div class="news-card">
-              <div class="news-card-img"></div>
-              <div class="news-card-body">
-                <span class="news-badge">Publicado</span>
-                <h3>Guarda Municipal recebe treinamento em simulador</h3>
-                <span class="news-date">29 Jan, 2026</span>
-              </div>
-            </div>
-            <div class="news-card">
-              <div class="news-card-img"></div>
-              <div class="news-card-body">
-                <span class="news-badge">Publicado</span>
-                <h3>CRIOS-UFRJ e SKY X firmam parceria em Realidade Virtual</h3>
-                <span class="news-date">15 Jan, 2026</span>
-              </div>
-            </div>
-            <div class="news-card">
-              <div class="news-card-img"></div>
-              <div class="news-card-body">
-                <span class="news-badge draft">Rascunho</span>
-                <h3>SkyX anuncia novas soluções para o mercado educacional</h3>
-                <span class="news-date">02 Fev, 2026</span>
-              </div>
-            </div>
+          <div class="news-grid" id="overviewNewsGrid">
+            <span style="color:#888;">Carregando...</span>
           </div>
         </section>
 
@@ -337,6 +325,37 @@
           </section>
         </div>
 
+        <!-- View: Parceiros -->
+        <div class="dash-view" data-view="parceiros">
+          <div class="parceiros-dash-header">
+            <h2 class="section-title">Logotipos de Parceiros</h2>
+            <button class="btn-nova-noticia" id="btnAdicionarParceiro">+ Adicionar Parceiro</button>
+          </div>
+          <p class="parceiros-desc">Gerencie os logos que aparecem na seção Parceiros do site.</p>
+          <div id="parceirosList" class="parceiros-grid"></div>
+
+          <!-- Modal: Adicionar Parceiro -->
+          <div id="parceiroModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center;">
+            <div class="parceiro-modal-box">
+              <div class="parceiro-modal-header">
+                <span class="parceiro-modal-title">Adicionar Parceiro</span>
+                <button class="parceiro-modal-close" id="closeParceiroModal">&times;</button>
+              </div>
+              <form id="parceiroForm" enctype="multipart/form-data">
+                <label class="parceiro-modal-label">Nome do parceiro <span style="color:#aaa;font-size:.85em;">(opcional)</span></label>
+                <input type="text" id="parceiroNome" class="parceiro-modal-input" placeholder="Ex.: CRIOS-UFRJ" />
+                <label class="parceiro-modal-label">Logo <span style="color:#e74c3c;">*</span></label>
+                <input type="file" id="parceiroImagem" class="parceiro-modal-input" accept="image/*" required />
+                <img id="parceiroImgPreview" src="" alt="Preview" />
+                <div class="parceiro-modal-actions">
+                  <button type="button" id="cancelarParceiroModal" class="noticia-btn-cancelar">Cancelar</button>
+                  <button type="submit" class="noticia-btn-salvar">Salvar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
         <!-- View: Projetos -->
         <div class="dash-view" data-view="projetos">
           <div class="view-placeholder">
@@ -377,7 +396,9 @@
       </main>
     </div>
     <link rel="stylesheet" href="css/dashboard-noticias.css" />
+    <link rel="stylesheet" href="css/dashboard-parceiros.css" />
     <script src="js/dashboard.js"></script>
     <script src="js/dashboard-noticias.js"></script>
+    <script src="js/dashboard-parceiros.js"></script>
   </body>
 </html>

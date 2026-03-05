@@ -1004,7 +1004,9 @@ body {
   border-radius: 18px;
   margin-right: 0.4rem;
   margin-bottom: 0.2rem;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 .noticia-tag:last-child {
   margin-right: 0;
@@ -1133,7 +1135,6 @@ body {
 .msg-info-extra {
   display: flex;
   flex-direction: column;
-  
 }
 .msg-email {
   color: #888;
@@ -1143,7 +1144,7 @@ body {
 .msg-phone {
   color: #888;
   font-weight: 400;
-  font-size: 0.90em;
+  font-size: 0.9em;
 }
 .msg-template-error {
   color: red;

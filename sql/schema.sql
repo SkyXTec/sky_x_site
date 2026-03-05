@@ -84,6 +84,20 @@ VALUES (
     'Admin SkyX'
 );
 
+-- ============================================================
+-- Tabela de parceiros (logotipos)
+CREATE TABLE IF NOT EXISTS `skyx_parceiros` (
+    `id`        INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `nome`      VARCHAR(100) NOT NULL,
+    `img_id`    INT UNSIGNED NOT NULL,
+    `ordem`     INT UNSIGNED NOT NULL DEFAULT 0,
+    `criado_em` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `fk_parceiros_imagem`
+        FOREIGN KEY (`img_id`) REFERENCES `skyx_imagens` (`id`)
+        ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Tabela para armazenar imagens em BLOB
 CREATE TABLE IF NOT EXISTS `skyx_imagens` (
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
