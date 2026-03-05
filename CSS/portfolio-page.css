@@ -2,49 +2,167 @@
    PÁGINA DE PORTFÓLIO
    ======================================== */
 
-.portfolio-page {
-  min-height: 100vh;
-  background: var(--color-black);
-  padding: var(--space-2xl) var(--space-xl);
-  font-family: var(--font-primary);
+/* ── Layout base ─────────────────────────────────────────────────────────── */
+.portfolio-body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+/* ── Scroll container (substitui .portfolio-page) ────────────────────────── */
+.portfolio-scroll-wrap {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+/* ── Slide de projeto ─────────────────────────────────────────────────────── */
+.portfolio-slide {
+  height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px);
+  scroll-snap-align: start;
   position: relative;
-  overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
+  padding: var(--space-2xl) var(--space-xl);
+  overflow: hidden;
 }
 
-/* Background Image */
-.portfolio-page::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: var(--bg-image, url('../assets/images/portfolio/projeto-1.jpg'));
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+/* ── Background por slide ────────────────────────────────────────────────── */
+.slide-bg {
+  position: absolute;
+  inset: 0;
   z-index: 0;
-  transition: opacity 0.5s ease;
 }
 
-/* Overlay escuro para legibilidade */
-.portfolio-page::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
+.slide-bg img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.slide-bg-fallback {
+  background: #0a0a15;
+}
+
+.slide-overlay {
+  position: absolute;
+  inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.7) 0%,
-    rgba(0, 0, 0, 0.85) 50%,
-    rgba(0, 0, 0, 0.9) 100%
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.8) 50%,
+    rgba(0, 0, 0, 0.92) 100%
   );
-  z-index: 1;
+}
+
+/* ── Dots de navegação (lado direito) ────────────────────────────────────── */
+.project-dots-nav {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 200;
+}
+
+.project-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.project-dot.active {
+  background: var(--color-white);
+  transform: scale(1.4);
+}
+
+.project-dot:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* ── Contador de projetos ─────────────────────────────────────────────────── */
+.project-counter {
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.counter-sep {
+  opacity: 0.5;
+}
+
+/* ── Estados de carregamento / vazio ─────────────────────────────────────── */
+.portfolio-loading,
+.portfolio-empty {
+  height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-primary);
+  font-weight: 300;
+  gap: 16px;
+}
+
+/* ── Indicador de scroll (seta no rodapé do slide) ───────────────────────── */
+.slide-scroll-hint {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  z-index: 10;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.slide-scroll-hint span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(45deg);
+  animation: scrollBounce 1.4s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%,
+  100% {
+    transform: rotate(45deg) translateY(-4px);
+    opacity: 0.3;
+  }
+  50% {
+    transform: rotate(45deg) translateY(0);
+    opacity: 1;
+  }
 }
 
 /* ========================================
@@ -52,15 +170,19 @@
    ======================================== */
 
 .page-header {
-  max-width: 1440px;
-  width: 100%;
-  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 var(--space-xl);
   gap: var(--space-xl);
-  position: relative;
-  z-index: 10;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent);
+  backdrop-filter: blur(4px);
+  z-index: 150;
 }
 
 .back-link {
@@ -106,7 +228,6 @@
   justify-content: end;
   position: relative;
   z-index: 10;
-  justify-content: end;
 }
 
 /* ========================================
@@ -230,7 +351,7 @@
   overflow-y: hidden;
   scroll-behavior: smooth;
   padding-bottom: var(--space-sm);
-  
+
   /* Esconder scrollbar mas manter funcionalidade */
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
@@ -261,7 +382,10 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.3s ease;
   cursor: pointer;
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.2);
@@ -277,7 +401,7 @@
   opacity: 0.3;
 }
 
-.gallery-item:nth-child(n+5) {
+.gallery-item:nth-child(n + 5) {
   opacity: 0.15;
 }
 
@@ -298,9 +422,50 @@
   opacity: 1 !important;
 }
 
-/* ========================================
-   RESPONSIVIDADE
-   ======================================== */
+/* Conteúdo do slide precisa de z-index > 0 para ficar sobre o slide-bg */
+.portfolio-slide .portfolio-container {
+  position: relative;
+  z-index: 10;
+}
+
+/* ── Galeria: thumb de vídeo ───────────────────────────────────────────────── */
+.gallery-video-thumb {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.gallery-play-icon {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  transition: transform 0.2s ease;
+}
+
+.gallery-item[data-tipo='video']:hover .gallery-play-icon {
+  transform: scale(1.2);
+}
+
+/* ── Lightbox: vídeo embed ─────────────────────────────────────────────────── */
+.lightbox-video-wrap {
+  position: relative;
+  width: 80vw;
+  max-width: 900px;
+  aspect-ratio: 16/9;
+}
+
+.lightbox-video-wrap iframe,
+.lightbox-video-wrap video {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-md);
+}
+
+/* ── Responsividade ─────────────────────────────────────────────────────────── */
 
 /* Laptop */
 @media (max-width: 1200px) {
@@ -316,7 +481,7 @@
 
 /* Tablet */
 @media (max-width: 768px) {
-  .portfolio-page {
+  .portfolio-slide {
     padding: var(--space-xl) var(--space-md);
   }
 
@@ -344,13 +509,12 @@
 
 /* Mobile */
 @media (max-width: 480px) {
-  .portfolio-page {
+  .portfolio-slide {
     padding: var(--space-lg) var(--space-md);
   }
 
-  .back-link {
-    position: static;
-    margin-bottom: var(--space-sm);
+  .project-dots-nav {
+    right: 10px;
   }
 
   .page-header {
@@ -401,8 +565,12 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .lightbox-content {
@@ -413,8 +581,12 @@
 }
 
 @keyframes zoomIn {
-  from { transform: scale(0.8); }
-  to { transform: scale(1); }
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 .lightbox-content img {

@@ -358,11 +358,100 @@
 
         <!-- View: Projetos -->
         <div class="dash-view" data-view="projetos">
-          <div class="view-placeholder">
-            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-            <p class="placeholder-title">Gerenciamento de Projetos</p>
-            <span class="placeholder-sub">Em construção</span>
+
+          <div class="projetos-dash-header">
+            <h2 class="dash-section-title">Projetos do Portfólio</h2>
+            <button class="btn-primary" id="btnNovoProjeto">+ Novo Projeto</button>
           </div>
+
+          <div id="projetosList"></div>
+
+          <!-- Modal de projeto -->
+          <div class="projeto-modal" id="projetoModal" style="display:none;">
+            <div class="projeto-modal-box">
+              <div class="projeto-modal-header">
+                <span id="projetoModalTitle">Novo Projeto</span>
+                <button class="modal-close-btn" id="closeProjetoModal">&#x2715;</button>
+              </div>
+
+              <form id="projetoForm" novalidate>
+
+                <!-- Seção: Informações -->
+                <div class="modal-section">
+                  <h4 class="modal-section-title">Informações</h4>
+
+                  <label class="form-label" for="projetoNome">Nome do projeto *</label>
+                  <input class="form-input" type="text" id="projetoNome" required placeholder="Ex: Cortex" />
+
+                  <div class="form-row">
+                    <div>
+                      <label class="form-label" for="projetoCliente">Cliente</label>
+                      <input class="form-input" type="text" id="projetoCliente" placeholder="Ex: Empresa XYZ" />
+                    </div>
+                    <div>
+                      <label class="form-label" for="projetoAno">Ano</label>
+                      <input class="form-input" type="number" id="projetoAno" min="2000" max="2099" placeholder="2025" />
+                    </div>
+                  </div>
+
+                  <label class="form-label" for="projetoLabel">Label</label>
+                  <input class="form-input" type="text" id="projetoLabel" value="Projeto" placeholder="Ex: Projeto em destaque" />
+
+                  <label class="form-label" for="projetoDescricao">Descrição curta</label>
+                  <textarea class="form-input form-textarea" id="projetoDescricao" rows="3" placeholder="Breve descrição do projeto..."></textarea>
+
+                  <label class="form-label" for="projetoDetalhes">Detalhes</label>
+                  <textarea class="form-input form-textarea" id="projetoDetalhes" rows="5" placeholder="Conte mais sobre o projeto, tecnologias usadas, resultados..."></textarea>
+
+                  <div class="form-row">
+                    <div>
+                      <label class="form-label" for="projetoStatus">Status</label>
+                      <select class="form-input" id="projetoStatus">
+                        <option value="publicado">Publicado</option>
+                        <option value="arquivado">Arquivado</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label class="form-label" for="projetoOrdem">Ordem de exibição</label>
+                      <input class="form-input" type="number" id="projetoOrdem" value="0" min="0" />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Seção: Imagem de capa -->
+                <div class="modal-section">
+                  <h4 class="modal-section-title">Imagem de Capa</h4>
+                  <input type="file" id="projetoImagem" accept="image/*" class="form-input-file" />
+                  <img id="projetoImgPreview" src="" alt="Preview" class="img-preview" style="display:none;" />
+                </div>
+
+                <!-- Seção: Galeria (visível após criar o projeto) -->
+                <div class="modal-section" id="galeriaSection" style="display:none;">
+                  <h4 class="modal-section-title">Galeria de Mídias</h4>
+                  <div id="galeriaList" class="galeria-dash-list"></div>
+
+                  <div class="galeria-add-controls">
+                    <button type="button" class="btn-secondary" id="btnAddGaleriaImg">+ Imagem</button>
+                    <input type="file" id="galeriaImgInput" accept="image/*" style="display:none;" />
+                  </div>
+
+                  <div class="galeria-video-row">
+                    <input class="form-input" type="url" id="galeriaVideoUrl"
+                      placeholder="URL do vídeo (YouTube, Vimeo ou link direto)" />
+                    <button type="button" class="btn-secondary" id="btnAddGaleriaVideo">+ Vídeo</button>
+                  </div>
+                </div>
+
+                <!-- Ações do modal -->
+                <div class="modal-actions">
+                  <button type="button" class="btn-secondary" id="cancelarProjetoModal">Cancelar</button>
+                  <button type="submit" class="btn-primary">Salvar Projeto</button>
+                </div>
+
+              </form>
+            </div>
+          </div>
+
         </div>
 
         <!-- View: Configurações -->
@@ -397,8 +486,10 @@
     </div>
     <link rel="stylesheet" href="css/dashboard-noticias.css" />
     <link rel="stylesheet" href="css/dashboard-parceiros.css" />
+    <link rel="stylesheet" href="css/dashboard-projetos.css" />
     <script src="js/dashboard.js"></script>
     <script src="js/dashboard-noticias.js"></script>
     <script src="js/dashboard-parceiros.js"></script>
+    <script src="js/dashboard-projetos.js"></script>
   </body>
 </html>

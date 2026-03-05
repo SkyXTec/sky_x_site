@@ -85,6 +85,43 @@ VALUES (
 );
 
 -- ============================================================
+-- Tabela de projetos do portfólio
+CREATE TABLE IF NOT EXISTS `skyx_projetos` (
+    `id`        INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `nome`      VARCHAR(150) NOT NULL,
+    `cliente`   VARCHAR(100) DEFAULT NULL,
+    `ano`       YEAR DEFAULT NULL,
+    `label`     VARCHAR(80) NOT NULL DEFAULT 'Projeto',
+    `descricao` TEXT DEFAULT NULL,
+    `detalhes`  TEXT DEFAULT NULL,
+    `capa_id`   INT UNSIGNED DEFAULT NULL,
+    `status`    ENUM('publicado','arquivado') NOT NULL DEFAULT 'publicado',
+    `ordem`     INT UNSIGNED NOT NULL DEFAULT 0,
+    `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `fk_projetos_capa`
+        FOREIGN KEY (`capa_id`) REFERENCES `skyx_imagens` (`id`)
+        ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Galeria de mídias por projeto (imagens e vídeos)
+CREATE TABLE IF NOT EXISTS `skyx_projeto_galeria` (
+    `id`         INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `projeto_id` INT UNSIGNED NOT NULL,
+    `tipo`       ENUM('imagem','video') NOT NULL DEFAULT 'imagem',
+    `img_id`     INT UNSIGNED DEFAULT NULL,
+    `video_url`  VARCHAR(255) DEFAULT NULL,
+    `ordem`      INT UNSIGNED NOT NULL DEFAULT 0,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `fk_galeria_projeto`
+        FOREIGN KEY (`projeto_id`) REFERENCES `skyx_projetos` (`id`)
+        ON DELETE CASCADE,
+    CONSTRAINT `fk_galeria_imagem`
+        FOREIGN KEY (`img_id`) REFERENCES `skyx_imagens` (`id`)
+        ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ============================================================
 -- Tabela de parceiros (logotipos)
 CREATE TABLE IF NOT EXISTS `skyx_parceiros` (
     `id`        INT UNSIGNED NOT NULL AUTO_INCREMENT,

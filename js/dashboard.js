@@ -114,6 +114,11 @@ function initNavigation() {
         typeof window.renderParceirosList === 'function'
       )
         window.renderParceirosList();
+      if (
+        target === 'projetos' &&
+        typeof window.renderProjetosList === 'function'
+      )
+        window.renderProjetosList();
     });
   });
 }
