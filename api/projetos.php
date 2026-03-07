@@ -31,7 +31,7 @@ try {
         if ($projetoId <= 0) { respond(400, ['error' => 'projeto_id inválido.']); }
 
         $ct = $_SERVER['CONTENT_TYPE'] ?? '';
-        if (str_contains($ct, 'application/json')) {
+        if (strpos($ct, 'application/json') !== false) {
             // Vídeo via URL
             $data     = json_decode(file_get_contents('php://input'), true) ?? [];
             $videoUrl = trim($data['video_url'] ?? '');
@@ -217,7 +217,7 @@ function uploadImagem(PDO $pdo, array $file): int
     return (int) $pdo->lastInsertId();
 }
 
-function respond(int $code, array $body): never
+function respond(int $code, array $body): void
 {
     http_response_code($code);
     echo json_encode($body);
