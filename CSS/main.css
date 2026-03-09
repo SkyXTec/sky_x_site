@@ -9,7 +9,7 @@
 @import url('scroll-animations.css');
 
 /* Estilos da Home (consolidado) */
-@import url('home.css');
+@import url('home.css?v=2');
 
 /* Páginas Avulsas */
 @import url('portfolio-page.css');
