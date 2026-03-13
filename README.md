@@ -5,7 +5,7 @@ Site institucional da SKY x implementado com base no design do Figma.
 ## 🚀 Tecnologias
 
 - HTML5
-- CSS3
+- css3
 - JavaScript (Vanilla)
 - Google Fonts (Inter & Roboto Condensed)
 
@@ -14,7 +14,7 @@ Site institucional da SKY x implementado com base no design do Figma.
 ```
 sky_x_site/
 ├── index.html          # Página principal
-├── styles.css          # Estilos CSS
+├── styles.css          # Estilos css
 ├── script.js           # Scripts JavaScript
 ├── README.md           # Este arquivo
 ├── LICENSE             # Licença

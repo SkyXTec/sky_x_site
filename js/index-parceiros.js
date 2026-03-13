@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         ScrollTrigger.refresh();
       }
     } else {
-      // Fallback sem GSAP: aplica classes CSS manuais
+      // Fallback sem GSAP: aplica classes css manuais
       container.querySelectorAll('.parceiro-card').forEach((el, i) => {
         el.classList.add('scroll-scale-in');
         if (i > 0) el.classList.add(`delay-${Math.min(i * 200, 1200)}`);

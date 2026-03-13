@@ -16,7 +16,7 @@
   AddType application/javascript .mjs
   AddType text/javascript .js
   
-  # CSS
+  # css
   AddType text/css .css
   
   # Imagens

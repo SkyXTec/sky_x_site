@@ -333,7 +333,7 @@
     if (!curvedEdge) return;
 
     // Animação orgânica dos gradients
-    // Movemos as posições X e Y das variáveis CSS definidas no base.css
+    // Movemos as posições X e Y das variáveis css definidas no base.css
     
     // Gradient 1 (Topo Direita)
     gsap.to(curvedEdge, {
