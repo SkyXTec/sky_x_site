@@ -7,37 +7,65 @@
       document.documentElement.classList.add('js-enabled');
     </script>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
     <title>SKY X - Tecnologia e Inovação</title>
 
     <!-- SEO -->
-    <meta name="description" content="SKY X - Soluções inovadoras em realidade virtual, desenvolvimento de software e experiências imersivas. Transformando ideias em tecnologia.">
-    <meta name="keywords" content="realidade virtual, VR, desenvolvimento software, tecnologia, inovação, córtex VR, experiências imersivas, Macaé">
-    <meta name="author" content="SKY X Tecnologia">
+    <meta
+      name="description"
+      content="SKY X - Soluções inovadoras em realidade virtual, desenvolvimento de software e experiências imersivas. Transformando ideias em tecnologia."
+    />
+    <meta
+      name="keywords"
+      content="realidade virtual, VR, desenvolvimento software, tecnologia, inovação, córtex VR, experiências imersivas, Macaé"
+    />
+    <meta name="author" content="SKY X Tecnologia" />
     <!-- Nota: Criar arquivo favicon.png e apple-touch-icon.png na pasta assets/icons/ -->
-    <link rel="icon" type="image/png" href="assets/images/logo.png">
-    <link rel="apple-touch-icon" href="assets/images/logo.png">
+    <link rel="icon" type="image/png" href="assets/images/logo.png" />
+    <link rel="apple-touch-icon" href="assets/images/logo.png" />
 
     <!-- Open Graph / Facebook / LinkedIn -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://skyxtecnologia.com.br/">
-    <meta property="og:title" content="SKY X - Tecnologia e Inovação em Realidade Virtual">
-    <meta property="og:description" content="Transformamos ideias em experiências digitais inovadoras através de realidade virtual e desenvolvimento de software.">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://skyxtecnologia.com.br/" />
+    <meta
+      property="og:title"
+      content="SKY X - Tecnologia e Inovação em Realidade Virtual"
+    />
+    <meta
+      property="og:description"
+      content="Transformamos ideias em experiências digitais inovadoras através de realidade virtual e desenvolvimento de software."
+    />
     <!-- Nota: Criar arquivo og-image.jpg (1200x630px) na pasta assets/images/ -->
-    <meta property="og:image" content="https://skyxtecnologia.com.br/assets/images/img-hero.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta
+      property="og:image"
+      content="https://skyxtecnologia.com.br/assets/images/img-hero.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <!-- Twitter Cards -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://skyxtecnologia.com.br/">
-    <meta property="twitter:title" content="SKY X - Tecnologia e Inovação">
-    <meta property="twitter:description" content="Transformando ideias em experiências digitais inovadoras">
-    <meta property="twitter:image" content="https://skyxtecnologia.com.br/assets/images/img-hero.png">
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://skyxtecnologia.com.br/" />
+    <meta property="twitter:title" content="SKY X - Tecnologia e Inovação" />
+    <meta
+      property="twitter:description"
+      content="Transformando ideias em experiências digitais inovadoras"
+    />
+    <meta
+      property="twitter:image"
+      content="https://skyxtecnologia.com.br/assets/images/img-hero.png"
+    />
 
     <!-- Fonts Preload -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Roboto+Condensed:wght@200;300;400&display=swap">
-    
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Roboto+Condensed:wght@200;300;400&display=swap"
+    />
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -48,35 +76,45 @@
 
     <!-- Main css -->
     <link rel="stylesheet" href="css/main.css?v=2" />
-    <link rel="stylesheet" href="CSS/streaming-page.css" />
-
-
+    <link rel="stylesheet" href="css/streaming-page.css?v=2" />
   </head>
   <body class="streaming-bg">
     <header>
       <div class="container-logo">
-      <img src="assets/images/logo-branca.png" alt="Logo SKY X" class="logo-streaming"> 
+        <img
+          src="assets/images/logo-branca.png"
+          alt="Logo SKY X"
+          class="logo-streaming"
+        />
       </div>
     </header>
     <main class="container-streaming streaming-layout">
-        <div class="main-player">
-          <div class="video-container">
-            <iframe
-              id="main-video-frame"
-              class="video-box"
-              src="https://customer-wq1ka1uuw98wqbst.cloudflarestream.com/b531d4812ec763ad3da638d0d192197e/iframe"
-              allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-              allowfullscreen="true"
-            ></iframe>
-          </div>
+      <div class="main-player">
+        <div class="video-container">
+          <iframe
+            id="main-video-frame"
+            class="video-box"
+            src="https://customer-wq1ka1uuw98wqbst.cloudflarestream.com/b531d4812ec763ad3da638d0d192197e/iframe"
+            allow="
+              accelerometer;
+              gyroscope;
+              autoplay;
+              encrypted-media;
+              picture-in-picture;
+            "
+            allowfullscreen="true"
+          ></iframe>
         </div>
+      </div>
 
-        <aside class="sidebar-videos">
-          <h3>Streams Anteriores</h3>
-          <div class="video-list" id="video-list-container">
-             <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Carregando...</p>
-          </div>
-        </aside>
+      <aside class="sidebar-videos">
+        <h3>Streams Anteriores</h3>
+        <div class="video-list" id="video-list-container">
+          <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem">
+            Carregando...
+          </p>
+        </div>
+      </aside>
     </main>
 
     <!-- GSAP & ScrollTrigger -->
