@@ -2573,13 +2573,6 @@ header {
       }
     }
   }
-
-  .footer-img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    margin-top: 2rem;
-  }
 }
 
 /* ========================================
@@ -3313,11 +3306,6 @@ header {
   .footer-section h3 {
     font-size: 1.2rem;
   }
-
-  .footer-img {
-    margin-top: 1.5rem;
-    max-width: 100%;
-  }
 }
 
 /* Mobile Pequeno (max-width: 480px) */
@@ -3637,9 +3625,5 @@ header {
   .termos {
     flex-direction: column;
     gap: 0.5rem;
-  }
-
-  .footer-img {
-    margin-top: 1rem;
   }
 }
